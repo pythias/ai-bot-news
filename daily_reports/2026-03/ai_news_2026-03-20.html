@@ -43,7 +43,6 @@
             justify-content: center;
         }
 
-        /* 标题页样式 */
         .title-slide {
             text-align: center;
             align-items: center;
@@ -71,7 +70,6 @@
             border-radius: 4px;
         }
 
-        /* 内容页样式 */
         .news-slide h2 {
             font-size: 5.5vh;
             color: #000;
@@ -132,7 +130,6 @@
             color: #888;
         }
 
-        /* 辅助信息 */
         .slide-number {
             position: absolute;
             bottom: 4vh;
@@ -149,183 +146,233 @@
             font-size: 1.6vh;
             color: #eee;
         }
+
+        .overview-slide .data-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3vh;
+            margin-top: 3vh;
+        }
+
+        .overview-slide .card {
+            background: #f8f8f8;
+            padding: 3vh;
+            border-radius: 8px;
+            border-left: 6px solid #000;
+        }
+
+        .overview-slide .card h3 {
+            font-size: 2.5vh;
+            color: #666;
+            margin-bottom: 1vh;
+        }
+
+        .overview-slide .card .value {
+            font-size: 5vh;
+            font-weight: 800;
+            color: #000;
+        }
     </style>
 </head>
 <body>
 
-    <!-- 封面幻灯片 -->
     <div class="slide active">
         <div class="slide-content title-slide">
             <h1>🤖 AI行业日报</h1>
-            <div class="subtitle">今日热点与技术前沿</div>
+            <div class="subtitle">今日全球AI前沿动态</div>
             <div class="date">2026年3月20日</div>
         </div>
         <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻1：华为昇腾AI伙伴峰会 -->
     <div class="slide">
-        <div class="slide-content news-slide">
-            <span class="category">产业生态</span>
-            <h2>华为昇腾AI伙伴峰会今日召开</h2>
-            <div class="highlights">
-                <h3>核心要点</h3>
-                <ul>
-                    <li>超节点规模商用实践，重磅发布新一代硬件产品</li>
-                    <li>联合10余家ISV伙伴发布场景化解决方案</li>
-                    <li>邮储银行、科大讯飞、润达医疗等分享标杆案例</li>
-                    <li>展区展示昇腾384超节点真机与OpenClaw一体机</li>
-                </ul>
+        <div class="slide-content overview-slide">
+            <h2 style="font-size: 5.5vh; color: #000; margin-bottom: 4vh; font-weight: 700; border-left: 12px solid #000; padding-left: 3vw;">今日核心数据</h2>
+            <div class="data-cards">
+                <div class="card">
+                    <h3>AI Agent应用率</h3>
+                    <div class="value">82%</div>
+                    <p style="margin-top: 1vh; color: #666;">企业计划在未来12个月部署AI Agent</p>
+                </div>
+                <div class="card">
+                    <h3>语音AI增长</h3>
+                    <div class="value">10倍</div>
+                    <p style="margin-top: 1vh; color: #666;">2026年财报中Agent提及次数同比增长</p>
+                </div>
+                <div class="card">
+                    <h3>多模态成标配</h3>
+                    <div class="value">95%+</div>
+                    <p style="margin-top: 1vh; color: #666;">前沿模型已支持多模态输入输出</p>
+                </div>
+                <div class="card">
+                    <h3>OpenAI融资纪录</h3>
+                    <div class="value">$1100亿</div>
+                    <p style="margin-top: 1vh; color: #666;">创私募融资历史新高</p>
+                </div>
             </div>
-            <div class="source"><strong>来源:</strong> 搜狐新闻</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻2：OpenAI GPT-5.4发布 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">模型发布</span>
-            <h2>OpenAI发布GPT-5.4：原生电脑操控能力突破</h2>
+            <span class="category">重磅融资</span>
+            <h2>OpenAI完成1100亿美元融资，创私募历史纪录</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>首个原生支持计算机使用能力的通用模型</li>
-                    <li>OSWorld测试达75.0%，超越人类基准72.4%</li>
-                    <li>支持100万Token上下文窗口，编程能力大幅提升</li>
-                    <li>完美适配OpenClaw，可独立完成全链路工作</li>
+                    <li>Amazon投资500亿美元，Nvidia和SoftBank各投300亿美元，投前估值7300亿美元</li>
+                    <li>与AWS合作扩大1000亿美元计算合约，承诺使用2GW Trainium算力</li>
+                    <li>与Nvidia达成使用3GW推理算力和2GW训练算力的协议</li>
+                    <li>Amazon的500亿中，350亿取决于实现AGI或年底前IPO</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> IT之家/新智元</div>
+            <div class="source"><strong>来源:</strong> TechCrunch</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻3：Claude Opus 4.6性能突破 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">模型更新</span>
-            <h2>Anthropic发布Claude Opus 4.6：专业任务超越Gemini</h2>
+            <span class="category">伦理之争</span>
+            <h2>Anthropic遭美政府封杀，坚持AI伦理红线</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>Terminal-Bench 2.0得分65.4%，OSWorld得分72.7%</li>
-                    <li>首次开放100万Token上下文窗口测试版</li>
-                    <li>编程技能升级，代码审查与自我调试可靠性大幅提升</li>
-                    <li>新增PowerPoint集成研究预览版功能</li>
+                    <li>特朗普指示联邦机构停止使用Anthropic技术，国防部列为"供应链风险"</li>
+                    <li>Anthropic拒绝五角大楼两条要求：大规模监控美国公民、全自主杀伤性武器</li>
+                    <li>300+名Google员工、60+名OpenAI员工签署公开信声援</li>
+                    <li>Claude应用在被封杀后冲上App Store第2名，显示用户支持</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> Anthropic官方</div>
+            <div class="source"><strong>来源:</strong> TechCrunch</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻4：算电协同成两会新基建重点 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">政策动向</span>
-            <h2>两会锚定算电协同，新基建驱动电力行业重估</h2>
+            <span class="category">AI Agent革命</span>
+            <h2>2026年AI Agent六大趋势：10倍速赛道来袭</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>政府工作报告明确"实施超大规模智算集群、算电协同等新基建工程"</li>
-                    <li>全国84个绿电直连项目完成审批，总装机3259万千瓦</li>
-                    <li>2026年预计落地超200个项目，总规模超15GW</li>
-                    <li>算力配套供电、电力设备、绿电运营细分领域受益</li>
+                    <li>语音AI加速崛起，企业为对话而非文本交互未来布局</li>
+                    <li>AI并购潮席卷，2025年Q1已发生35笔以上收购</li>
+                    <li>推理模型计算成本增加20倍，利润压力蔓延全行业</li>
+                    <li>52%使用AI企业已部署Agent至生产环境，主要应用于客服、营销</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 招商证券</div>
+            <div class="source"><strong>来源:</strong> CB Insights</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻5：英伟达GTC 2026前瞻 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">硬件突破</span>
-            <h2>英伟达GTC 2026即将发布"前所未见"AI芯片</h2>
+            <span class="category">多模型时代</span>
+            <h2>Perplexity推出Computer：集成19个AI模型</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>3月16-19日在美国圣何塞举办，黄仁勋将发表主题演讲</li>
-                    <li>预计发布Rubin Ultra和Feynman架构新品</li>
-                    <li>光电封装CPO/NPO技术进入规模化商用</li>
-                    <li>SerDes速率从112G向448G跃进，算力从PB级到EB级跨越</li>
+                    <li>首个集成19个AI模型的多模型代理系统，可创建子代理处理特定问题</li>
+                    <li>战略转型：从消费级搜索转向企业高端服务，放弃广告业务</li>
+                    <li>用户频繁切换模型：视觉用Gemini，工程用Claude，医学用GPT</li>
+                    <li>定价200美元/月，目标"做出影响GDP决策的人"</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 雪球/搜狐财经</div>
+            <div class="source"><strong>来源:</strong> TechCrunch</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻6：阿里千问与字节豆包进展 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">国内动态</span>
-            <h2>国内大模型持续迭代，阿里、字节加码AI基建</h2>
+            <span class="category">就业冲击</span>
+            <h2>AI裁员潮加速：2025年相关裁员达5.5万人</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>阿里云通义千问核心调用费用降价50%，推动模型能力普惠化</li>
-                    <li>字节跳动2026年资本开支达1600亿元，聚焦AI原生云</li>
-                    <li>国内厂商推进"一人公司"模式，单人开发者+AI Agent颠覆垂直行业</li>
-                    <li>AI教育元年启动，教育部明确AI课全面覆盖中小学</li>
+                    <li>2025年直接因AI裁员达5.5万人，是两年前的12倍，51000个来自科技行业</li>
+                    <li>Jack Dorsey的Block裁员近半（10000→6000）："更小团队+AI工具做得更好"</li>
+                    <li>Pinterest裁15%、Dow裁4500人、HP裁4000-6000人</li>
+                    <li>经济学家警告：部分企业可能将AI作为裁员"借口"</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 新浪财经/教育宝</div>
+            <div class="source"><strong>来源:</strong> CBS News</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻7：AI Agent生态爆发 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">应用创新</span>
-            <h2>OpenClaw引爆Agent生态，MoltBook打开AI自治社交</h2>
+            <span class="category">芯片战略</span>
+            <h2>NVIDIA将在GTC 2026发布集成Groq技术的推理芯片</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>OpenClaw开源项目GitHub Star突破25万，Mac Mini全球断货</li>
-                    <li>MoltBook纯AI Agent社交网络48小时涌入十万级智能体</li>
-                    <li>微软推出Copilot Wave 3，Copilot Cowork任务协作AI代理上线</li>
-                    <li>智能体从"被动工具"升级为"主动主体"，百亿智能体时代到来</li>
+                    <li>首次从纯GPU转向专用高效推理处理器，采用Groq的LPU架构</li>
+                    <li>与Groq签订200亿美元技术授权协议，OpenAI已同意成为首批客户</li>
+                    <li>解决推理效率和成本问题，推理模型Token消耗是传统模型的20倍</li>
+                    <li>3月GTC开发者大会将正式发布，标志AI芯片战略重大转型</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 澎湃新闻/今日头条</div>
+            <div class="source"><strong>来源:</strong> Analytics Insight</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻8：AI治理与安全 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">治理与伦理</span>
-            <h2>全球AI治理框架加速落地，安全与伦理成核心关切</h2>
+            <span class="category">技术突破</span>
+            <h2>多模态融合成为2026年AI标配</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>国内出台新规：AI生成内容必须标注"我是AI"</li>
-                    <li>OpenAI收购Promptfoo强化安全，补齐提示工程安全短板</li>
-                    <li>Anthropic起诉美国政府，反对被列入国家安全风险名单</li>
-                    <li>欧盟发布2026版AI教学指南，聚焦数据主权与教师赋能</li>
+                    <li>前沿模型普遍支持文本、图像、音频、视频混合输入输出</li>
+                    <li>医疗诊断准确率达94%，超越多数初级医生水平</li>
+                    <li>工业设计领域实现口述需求即可生成完整3D模型和工程图</li>
+                    <li>核心突破在于跨模态对比学习算法，实现不同模态间精准语义映射</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 今日头条/腾讯新闻</div>
+            <div class="source"><strong>来源:</strong> YY.RCWAPP</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 总结页 -->
     <div class="slide">
-        <div class="slide-content title-slide">
-            <h1>📊 今日核心数据</h1>
-            <div class="subtitle" style="font-size: 3.2vh; line-height: 1.8; max-width: 80%; margin: 4vh auto;">
-                <p style="margin-bottom: 2vh;">🔸 OpenAI GPT-5.4 OSWorld测试达<strong>75.0%</strong>，首次超越人类</p>
-                <p style="margin-bottom: 2vh;">🔸 全国绿电直连项目总装机<strong>3259万千瓦</strong>，2026年目标超<strong>15GW</strong></p>
-                <p style="margin-bottom: 2vh;">🔸 OpenClaw GitHub Star突破<strong>25万</strong>，MoltBook涌入<strong>10万+</strong>智能体</p>
-                <p>🔸 字节跳动AI基建投入<strong>1600亿</strong>，阿里三年<strong>3800亿</strong></p>
+        <div class="slide-content news-slide">
+            <span class="category">中国创新</span>
+            <h2>DeepSeek-R1打破美国大厂垄断神话</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>1月发布后引发"斯普特尼克时刻"，低成本高性能震撼硅谷</li>
+                    <li>推理优先模型成为行业新标准，通过牺牲速度换取更高准确性</li>
+                    <li>中国模型下载量已反超美国，开源策略取得显著成效</li>
+                    <li>在复杂逻辑推理、数学问题和科学计算中表现卓越</li>
+                </ul>
             </div>
+            <div class="source"><strong>来源:</strong> 百度百家号</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">基础设施</span>
+            <h2>科技巨头承诺为AI数据中心自供电</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>Amazon、Google、Meta、Microsoft等将于3月4日在白宫签署承诺</li>
+                    <li>数据中心预计到2028年将占全美用电量12%，引发社区反对</li>
+                    <li>AI基础设施朝超大规模和分布式网络两个方向发展</li>
+                    <li>量子计算与AI融合将构建新一代基础设施</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> CNBC</div>
         </div>
         <div class="slide-number"></div>
     </div>
@@ -335,11 +382,10 @@
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
-        // 初始化页码
         slides.forEach((slide, index) => {
             const pageNum = slide.querySelector('.slide-number');
             if (pageNum) {
-                pageNum.textContent = `${index + 1} / ${totalSlides}`;
+                pageNum.textContent = \`\${index + 1} / \${totalSlides}\`;
             }
         });
 
@@ -357,7 +403,6 @@
             showSlide(currentSlide - 1);
         }
 
-        // 键盘导航
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === ' ') {
                 nextSlide();
@@ -366,7 +411,6 @@
             }
         });
 
-        // 触摸滑动
         let touchStartX = 0;
         let touchEndX = 0;
         document.addEventListener('touchstart', (e) => {
@@ -378,7 +422,6 @@
             if (touchEndX - touchStartX > 50) prevSlide();
         }, {passive: true});
 
-        // 点击翻页 (左1/3上一页, 右1/3下一页)
         document.addEventListener('click', (e) => {
             const clickX = e.clientX;
             const windowWidth = window.innerWidth;
