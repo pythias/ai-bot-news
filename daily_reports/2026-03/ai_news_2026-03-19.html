@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI新闻日报 - 2026年3月19日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #1a1a2e;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 封面样式 */
+        .cover-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .cover-slide h1 {
+            font-size: 6vh;
+            font-weight: 700;
+            margin-bottom: 2vh;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .cover-slide .date {
+            font-size: 3.5vh;
+            opacity: 0.95;
+            margin-bottom: 6vh;
+        }
+
+        .cover-slide .subtitle {
+            font-size: 2.5vh;
+            opacity: 0.9;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        /* 内容页统一模板 */
+        .content-slide {
+            background: white;
+            padding: 0;
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        /* 页眉 */
+        .slide-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3vh 6vw;
+            color: white;
+        }
+
+        .slide-header h2 {
+            font-size: 4vh;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* 内容区域 */
+        .slide-body {
+            flex: 1;
+            padding: 4vh 6vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .slide-body p {
+            font-size: 2.4vh;
+            color: #2c3e50;
+            margin-bottom: 2vh;
+            line-height: 1.5;
+        }
+
+        .slide-body ul {
+            font-size: 2.2vh;
+            color: #34495e;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 3vh;
+        }
+
+        .slide-body li {
+            margin-bottom: 1.5vh;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .slide-body strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* 页脚 */
+        .slide-footer {
+            background: #f8f9fa;
+            padding: 2vh 6vw;
+            border-top: 2px solid #e9ecef;
+            font-size: 1.8vh;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* 总结页特殊样式 */
+        .summary-slide .slide-body {
+            padding: 3vh 6vw;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5vh;
+            margin-bottom: 2vh;
+        }
+
+        .summary-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2.5vh;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .summary-item h3 {
+            font-size: 2.5vh;
+            color: #2c3e50;
+            margin-bottom: 1.5vh;
+            font-weight: 600;
+        }
+
+        .summary-item p {
+            font-size: 1.9vh;
+            color: #34495e;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .summary-conclusion {
+            text-align: center;
+            font-size: 2.8vh;
+            color: #667eea;
+            font-weight: 600;
+            padding: 2vh;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            margin-top: 1vh;
+        }
+
+        /* 页码指示器 */
+        .page-number {
+            position: absolute;
+            bottom: 3vh;
+            right: 4vw;
+            font-size: 1.8vh;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .content-slide .page-number {
+            color: #95a5a6;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .slide-header {
+                padding: 2.5vh 5vw;
+            }
+            .slide-body {
+                padding: 3vh 5vw;
+            }
+        .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 导航按钮 */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.15);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 24px;
+            backdrop-filter: blur(8px);
+            outline: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: translateY(-50%) scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .prev-btn { left: 30px; }
+        .next-btn { right: 30px; }
+
+        /* 内容页上的按钮颜色调整以保持对比度 */
+        .content-slide ~ .nav-btn {
+            color: #333;
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-btn { width: 40px; height: 40px; font-size: 18px; }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <button class="nav-btn prev-btn" id="prevBtn" onclick="event.stopPropagation(); prevSlide()" aria-label="Previous">❮</button>
+        <button class="nav-btn next-btn" id="nextBtn" onclick="event.stopPropagation(); nextSlide()" aria-label="Next">❯</button>
+        <!-- Slide 1: 封面 -->
+        <div class="slide cover-slide active">
+            <h1>AI新闻日报</h1>
+            <div class="date">2026年3月19日</div>
+            <div class="subtitle">
+                精选最近24小时AI行业重要新闻与动态<br>
+                技术突破 · 产品发布 · 行业动态 · 研究成果
+            </div>
+            <div class="page-number">1 / 11</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>英伟达GTC 2026大会盛大开幕</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">时间地点：</span>3月16-19日，美国加州圣何塞</p>
+                <p><span class="highlight">核心看点：</span></p>
+                <ul>
+                    <li><strong>新一代GPU架构</strong> — 黄仁勋发布Rubin及Vera Rubin架构</li>
+                    <li><strong>物理AI时代</strong> — AI从数字世界走向物理世界</li>
+                    <li><strong>CPO技术商业化</strong> — 带宽翻倍，功耗降低30-50%</li>
+                    <li><strong>超1000场技术会议</strong> — 覆盖AI工厂、机器人、量子计算</li>
+                </ul>
+                <p><span class="highlight">产业影响：</span>推动AI算力产业链全面升级</p>
+            </div>
+            <div class="slide-footer">来源：英伟达官网、和众汇富研究</div>
+            <div class="page-number">2 / 11</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>小米发布万亿参数大模型</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">产品：</span>Mimo-V2-Pro 大模型</p>
+                <p><span class="highlight">技术参数：</span></p>
+                <ul>
+                    <li>总参数量超过1T（42B激活参数）</li>
+                    <li>支持1M超长上下文长度</li>
+                    <li>创新混合注意力架构</li>
+                    <li>面向Agent时代设计</li>
+                </ul>
+                <p><span class="highlight">成绩：</span>全球综合智能榜第八，品牌榜第五</p>
+                <p><span class="highlight">投资：</span>2026年AI领域投入超160亿元</p>
+            </div>
+            <div class="slide-footer">来源：小米官方、雷军社交平台</div>
+            <div class="page-number">3 / 11</div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>宇树科技：人形机器人的ChatGPT时刻</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">核心观点：</span></p>
+                <ul>
+                    <li><strong>最大挑战</strong> — AI模型的泛化能力需大幅提升</li>
+                    <li><strong>范式转变</strong> — 从"功夫模式"转向"打工模式"</li>
+                    <li><strong>速度预测</strong> — 2026年中机器人百米将达10秒内</li>
+                    <li><strong>决胜点</strong> — 硬件已接近极限，"大脑"是关键</li>
+                </ul>
+                <p><span class="highlight">商业化：</span>2025年出货5500台全球第一，2026年目标1-2万台</p>
+            </div>
+            <div class="slide-footer">来源：GTC 2026、2026亚布力论坛</div>
+            <div class="page-number">4 / 11</div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>国产大模型密集发布</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">字节跳动</span> — 豆包2.0日活过亿，成为春晚独家赞助商</p>
+                <p><span class="highlight">阿里巴巴</span> — 千问Qwen3-Max-Thinking，超万亿参数</p>
+                <p><span class="highlight">月之暗面</span> — Kimi K2.5开源，集群式作战能力</p>
+                <p><span class="highlight">腾讯</span> — 混元图像3.0开源，青云实习生招聘启动</p>
+                <p style="margin-top: 2vh;"><span class="highlight">行业趋势：</span>从"对话"转向"智能体"，AI真正能办事了</p>
+            </div>
+            <div class="slide-footer">来源：清华AGI-Next峰会、各企业官方</div>
+            <div class="page-number">5 / 11</div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>全球AI应用商业化提速</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">领先企业数据：</span></p>
+                <ul>
+                    <li><strong>OpenAI</strong> — ARR达100亿美元，ChatGPT贡献超60%</li>
+                    <li><strong>快手可灵</strong> — ARR达1.7亿美元，全球最大视频应用</li>
+                    <li><strong>Meta</strong> — 收购Manus，布局下一代交互入口</li>
+                </ul>
+                <p><span class="highlight">热门场景：</span>AI编程、多模态内容、AI搜索、设计协作</p>
+                <p><span class="highlight">商业模式：</span>2C订阅弹性大，2B/2P确定性强</p>
+            </div>
+            <div class="slide-footer">来源：国金证券、行业研究报告</div>
+            <div class="page-number">6 / 11</div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>AI眼镜市场爆发式增长</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">市场数据：</span></p>
+                <ul>
+                    <li>2025年全球出货870万台，同比增长322%</li>
+                    <li>中国成为全球第二大市场，占比10.9%</li>
+                </ul>
+                <p><span class="highlight">市场格局：</span></p>
+                <ul>
+                    <li><strong>Meta</strong> — 市场份额85.2%，绝对领先</li>
+                    <li><strong>Rokid</strong> — 中国厂商，全球第二</li>
+                    <li><strong>小米</strong> — 快速崛起，全球第三</li>
+                </ul>
+            </div>
+            <div class="slide-footer">来源：Omdia数据统计</div>
+            <div class="page-number">7 / 11</div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>AI安全与治理问题凸显</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">3·15晚会曝光问题：</span></p>
+                <ul>
+                    <li><strong>GEO业务</strong> — 付费让产品成为AI"标准答案"</li>
+                    <li><strong>AI外呼机器人</strong> — 成为骚扰电话帮凶</li>
+                    <li><strong>信息黑洞</strong> — 爬虫技术强行抓取用户隐私</li>
+                    <li><strong>荐股骗局</strong> — AI技术助力虚假诈骗</li>
+                </ul>
+                <p><span class="highlight">政策导向：</span>十五五规划明确加强AI治理，护栏建设趋严趋实</p>
+            </div>
+            <div class="slide-footer">来源：央视3·15晚会、国务院</div>
+            <div class="page-number">8 / 11</div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>AI产业链投资机遇</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">算力基建领域：</span></p>
+                <ul>
+                    <li>光模块/CPO/NPO产能连续翻倍</li>
+                    <li>HBM需求持续提升，供不应求</li>
+                    <li>液冷系统全面普及</li>
+                </ul>
+                <p><span class="highlight">应用端机会：</span></p>
+                <ul>
+                    <li><strong>广告营销AI</strong> — 蓝色光标目标30-50亿</li>
+                    <li><strong>工业AI</strong> — 能科科技净利增40%</li>
+                    <li><strong>办公财税AI</strong> — 金山办公收入增71%</li>
+                </ul>
+            </div>
+            <div class="slide-footer">来源：国泰海通、机构研报</div>
+            <div class="page-number">9 / 11</div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide content-slide">
+            <div class="slide-header">
+                <h2>AI技术前沿突破</h2>
+            </div>
+            <div class="slide-body">
+                <p><span class="highlight">模型技术演进：</span></p>
+                <ul>
+                    <li>推理模型向深度思考演进</li>
+                    <li>多模态标准化，支持混合输入输出</li>
+                    <li>注意力残差技术效率提升1.25倍</li>
+                </ul>
+                <p><span class="highlight">AI+科学研究：</span></p>
+                <ul>
+                    <li>173个AI药物进入临床，成功率80-90%</li>
+                    <li>清华超级药物搜索引擎效率提升百万倍</li>
+                    <li>AI助力核聚变，实验周期缩短至几个月</li>
+                </ul>
+            </div>
+            <div class="slide-footer">来源：Science Reader、各高校研究院</div>
+            <div class="page-number">10 / 11</div>
+        </div>
+
+        <!-- Slide 11: 总结 -->
+        <div class="slide content-slide summary-slide">
+            <div class="slide-header">
+                <h2>今日要点总结</h2>
+            </div>
+            <div class="slide-body">
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h3>技术层面</h3>
+                        <p>英伟达GTC开启算力新周期；国产大模型集中发布；具身智能加速商业化；物理AI成为新前沿</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>应用层面</h3>
+                        <p>AI从"对话"转向"智能体"；多个垂直场景价值兑现；AI眼镜等新硬件爆发</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>产业层面</h3>
+                        <p>算力需求激增，产业链升级；2026年AI应用元年；光模块、HBM成核心赛道</p>
+                    </div>
+                    <div class="summary-item">
+                        <h3>治理层面</h3>
+                        <p>安全伦理问题凸显；3·15曝光AI乱象；政策监管趋严趋实</p>
+                    </div>
+                </div>
+                <div class="summary-conclusion">
+                    2026年，AI正从技术突破走向规模化应用与价值兑现
+                </div>
+            </div>
+            <div class="slide-footer">AI新闻日报 © 2026</div>
+            <div class="page-number">11 / 11</div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // 更新按钮在不同页面背景下的对比度
+            const currentSlideEl = slides[currentSlide];
+            const isDark = currentSlideEl.classList.contains('cover-slide');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                if (isDark) {
+                    btn.style.color = 'white';
+                    btn.style.background = 'rgba(0,0,0,0.15)';
+                    btn.style.borderColor = 'rgba(255,255,255,0.2)';
+                } else {
+                    btn.style.color = '#333';
+                    btn.style.background = 'rgba(0,0,0,0.05)';
+                    btn.style.borderColor = 'rgba(0,0,0,0.1)';
+                }
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                showSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // 触摸滑动
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide();
+            }
+        }, {passive: true});
+
+        // 鼠标点击区域翻页 (50/50 划分)
+        document.addEventListener('click', function(e) {
+            // 如果点击的是按钮本身，由按钮的 onclick 处理
+            if (e.target.closest('.nav-btn')) return;
+
+            const width = window.innerWidth;
+            if (e.clientX > width / 2) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
