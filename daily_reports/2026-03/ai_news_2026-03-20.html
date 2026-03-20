@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI行业周报 - 2026年3月20日</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <title>AI新闻日报 - 2026年3月20日</title>
     <style>
         * {
             margin: 0;
@@ -13,18 +12,20 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background: #fff;
-            color: #1a1a1a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: white;
             overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
         }
 
         .slide {
             width: 100vw;
             height: 100vh;
             display: none;
+            background: white;
             position: relative;
-            padding: 60px 80px;
         }
 
         .slide.active {
@@ -32,124 +33,74 @@
             flex-direction: column;
         }
 
-        /* 标题页 */
-        .title-slide {
+        .slide-content {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            padding: 8vh 10vw;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
+        }
+
+        /* 标题页样式 */
+        .title-slide {
             text-align: center;
+            align-items: center;
         }
 
         .title-slide h1 {
-            font-size: 72px;
-            font-weight: 800;
-            margin-bottom: 30px;
+            font-size: 8vh;
             color: #000;
+            margin-bottom: 3vh;
+            font-weight: 800;
         }
 
         .title-slide .subtitle {
-            font-size: 36px;
+            font-size: 4vh;
             color: #666;
-            margin-bottom: 60px;
+            margin-bottom: 6vh;
+            font-weight: 400;
         }
 
         .title-slide .date {
-            font-size: 28px;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px 40px;
-            border-radius: 8px;
-            display: inline-block;
+            font-size: 3vh;
+            color: #1a1a1a;
+            padding: 1.5vh 4vw;
+            background: #f0f0f0;
+            border-radius: 4px;
         }
 
-        /* 概览页 */
-        .overview-slide h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            border-left: 10px solid #000;
-            padding-left: 20px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            background: #fafafa;
-            border: 2px solid #e0e0e0;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: #333;
-        }
-
-        .stat-card .number {
-            font-size: 42px;
-            font-weight: 800;
-            color: #000;
-            margin-bottom: 15px;
-        }
-
-        .stat-card .label {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .stat-card .trend {
-            font-size: 14px;
-            color: #999;
-        }
-
-        /* 图表页 */
-        .chart-slide h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            border-left: 10px solid #000;
-            padding-left: 20px;
-        }
-
-        .chart-container {
-            flex: 1;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        /* 新闻页 */
+        /* 内容页样式 */
         .news-slide h2 {
-            font-size: 42px;
+            font-size: 5.5vh;
+            color: #000;
+            margin-bottom: 4vh;
             font-weight: 700;
-            margin-bottom: 30px;
-            border-left: 10px solid #000;
-            padding-left: 20px;
-            line-height: 1.3;
+            line-height: 1.2;
+            border-left: 12px solid #000;
+            padding-left: 3vw;
         }
 
         .news-slide .category {
             display: inline-block;
-            font-size: 14px;
             color: #999;
+            font-size: 1.6vh;
+            margin-bottom: 2vh;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            letter-spacing: 0.2em;
             border-bottom: 1px solid #eee;
+            padding-bottom: 0.5vh;
         }
 
         .news-slide .highlights h3 {
-            font-size: 24px;
+            font-size: 3vh;
             color: #444;
-            margin-bottom: 20px;
+            margin-bottom: 2vh;
             font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 8px;
         }
 
         .news-slide .highlights ul {
@@ -158,331 +109,209 @@
         }
 
         .news-slide .highlights li {
-            font-size: 20px;
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            padding-left: 30px;
+            font-size: 3vh;
+            color: #222;
+            line-height: 1.6;
+            margin-bottom: 2vh;
+            padding-left: 3vw;
             position: relative;
         }
 
         .news-slide .highlights li:before {
-            content: "•";
+            content: "—";
             position: absolute;
             left: 0;
-            color: #666;
-            font-weight: bold;
+            color: #999;
         }
 
         .news-slide .source {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 4vh;
+            padding-top: 3vh;
             border-top: 2px solid #eee;
-            font-size: 16px;
+            font-size: 2.2vh;
             color: #888;
         }
 
-        /* 页码 */
+        /* 辅助信息 */
         .slide-number {
             position: absolute;
-            bottom: 30px;
-            right: 40px;
-            font-size: 16px;
+            bottom: 4vh;
+            right: 4vw;
+            font-size: 1.8vh;
             color: #ccc;
+            font-weight: 300;
         }
 
         .navigation-hint {
             position: absolute;
-            bottom: 30px;
-            left: 40px;
-            font-size: 14px;
-            color: #ddd;
+            bottom: 4vh;
+            left: 4vw;
+            font-size: 1.6vh;
+            color: #eee;
         }
     </style>
 </head>
 <body>
 
-    <!-- 标题页 -->
+    <!-- 封面幻灯片 -->
     <div class="slide active">
         <div class="slide-content title-slide">
-            <h1>AI行业周报</h1>
-            <div class="subtitle">2026年3月第三周 重要新闻与动态</div>
+            <h1>🤖 AI行业日报</h1>
+            <div class="subtitle">今日热点与技术前沿</div>
             <div class="date">2026年3月20日</div>
         </div>
-        <div class="navigation-hint">使用 ← → 键、点击屏幕或滑动翻页</div>
+        <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 数据概览页 -->
-    <div class="slide">
-        <div class="slide-content overview-slide">
-            <h2>核心数据概览</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="number">$200B</div>
-                    <div class="label">OpenAI年化收入</div>
-                    <div class="trend">2025年突破200亿美元</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">55,000+</div>
-                    <div class="label">2025年AI相关裁员</div>
-                    <div class="trend">同比增长12倍</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">$1,100B</div>
-                    <div class="label">OpenAI融资承诺</div>
-                    <div class="trend">亚马逊、NVIDIA、软银</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">100M+</div>
-                    <div class="label">阿里千问月活用户</div>
-                    <div class="trend">成为全球第三大AI应用</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">500+</div>
-                    <div class="label">Claude发现安全漏洞</div>
-                    <div class="trend">Firefox两周内发现22个CVE</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">46%</div>
-                    <div class="label">Block裁员比例</div>
-                    <div class="trend">4000人因AI失业</div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 图表1: AI企业融资对比 -->
-    <div class="slide">
-        <div class="slide-content chart-slide">
-            <h2>主要AI企业融资对比（亿美元）</h2>
-            <div class="chart-container">
-                <canvas id="investmentChart"></canvas>
-            </div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 图表2: AI裁员趋势 -->
-    <div class="slide">
-        <div class="slide-content chart-slide">
-            <h2>AI相关裁员趋势（2024-2026）</h2>
-            <div class="chart-container">
-                <canvas id="layoffChart"></canvas>
-            </div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 图表3: AI企业估值分布 -->
-    <div class="slide">
-        <div class="slide-content chart-slide">
-            <h2>主要AI企业估值分布（2026）</h2>
-            <div class="chart-container">
-                <canvas id="valuationChart"></canvas>
-            </div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 图表4: AI应用领域市场规模 -->
-    <div class="slide">
-        <div class="slide-content chart-slide">
-            <h2>AI应用领域市场规模（亿美元）</h2>
-            <div class="chart-container">
-                <canvas id="marketChart"></canvas>
-            </div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 新闻1 -->
+    <!-- 新闻1：华为昇腾AI伙伴峰会 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">行业动态</span>
-            <h2>OpenAI 2025年ARR突破200亿美元</h2>
+            <span class="category">产业生态</span>
+            <h2>华为昇腾AI伙伴峰会今日召开</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>2025年年化收入达200亿美元，相比2024年60亿美元大幅增长</li>
-                    <li>算力规模从2024年0.6GW扩展至2025年1.9GW</li>
-                    <li>ChatGPT日活用户接近5亿，是Gemini的5.6倍</li>
-                    <li>计划2026年进行千亿美元融资，估值或达8300亿美元</li>
+                    <li>超节点规模商用实践，重磅发布新一代硬件产品</li>
+                    <li>联合10余家ISV伙伴发布场景化解决方案</li>
+                    <li>邮储银行、科大讯飞、润达医疗等分享标杆案例</li>
+                    <li>展区展示昇腾384超节点真机与OpenClaw一体机</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> TechCrunch, 财联社</div>
+            <div class="source"><strong>来源:</strong> 搜狐新闻</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻2 -->
+    <!-- 新闻2：OpenAI GPT-5.4发布 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">技术突破</span>
-            <h2>Anthropic Claude发现500+零日漏洞</h2>
+            <span class="category">模型发布</span>
+            <h2>OpenAI发布GPT-5.4：原生电脑操控能力突破</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>Claude Opus 4.6在沙箱环境中发现500+高危漏洞</li>
-                    <li>两周内在Firefox发现22个CVE，14个高危</li>
-                    <li>发现漏洞能力远超传统fuzzing工具</li>
-                    <li>推出Claude Code Security企业级产品</li>
+                    <li>首个原生支持计算机使用能力的通用模型</li>
+                    <li>OSWorld测试达75.0%，超越人类基准72.4%</li>
+                    <li>支持100万Token上下文窗口，编程能力大幅提升</li>
+                    <li>完美适配OpenClaw，可独立完成全链路工作</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> Anthropic官方博客</div>
+            <div class="source"><strong>来源:</strong> IT之家/新智元</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻3 -->
+    <!-- 新闻3：Claude Opus 4.6性能突破 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">就业影响</span>
-            <h2>AI裁员潮加速：Block裁员46%</h2>
+            <span class="category">模型更新</span>
+            <h2>Anthropic发布Claude Opus 4.6：专业任务超越Gemini</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>Block公司裁员4000人，占比46%，为AI让路</li>
-                    <li>2025年美国AI相关裁员达5.5万人，是2024年的12倍</li>
-                    <li>CEO称"更小团队+AI工具能做得更好"</li>
-                    <li>裁员后股价上涨24%，市场认可AI替代策略</li>
+                    <li>Terminal-Bench 2.0得分65.4%，OSWorld得分72.7%</li>
+                    <li>首次开放100万Token上下文窗口测试版</li>
+                    <li>编程技能升级，代码审查与自我调试可靠性大幅提升</li>
+                    <li>新增PowerPoint集成研究预览版功能</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> CBS News, 深潮TechFlow</div>
+            <div class="source"><strong>来源:</strong> Anthropic官方</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻4 -->
+    <!-- 新闻4：算电协同成两会新基建重点 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">产品发布</span>
-            <h2>字节Seedance 2.0引爆全球</h2>
+            <span class="category">政策动向</span>
+            <h2>两会锚定算电协同，新基建驱动电力行业重估</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>登陆央视春晚，发布后72小时引爆科技圈</li>
-                    <li>支持多模态输入，视频生成质量达行业顶尖</li>
-                    <li>除夕单日助力豆包APP完成19亿次AI互动</li>
-                    <li>被评为"中国AI的两弹一星时刻"</li>
+                    <li>政府工作报告明确"实施超大规模智算集群、算电协同等新基建工程"</li>
+                    <li>全国84个绿电直连项目完成审批，总装机3259万千瓦</li>
+                    <li>2026年预计落地超200个项目，总规模超15GW</li>
+                    <li>算力配套供电、电力设备、绿电运营细分领域受益</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 观察者网, 新华社</div>
+            <div class="source"><strong>来源:</strong> 招商证券</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻5 -->
+    <!-- 新闻5：英伟达GTC 2026前瞻 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">国产突破</span>
-            <h2>阿里千问月活破1亿，成全球第三</h2>
+            <span class="category">硬件突破</span>
+            <h2>英伟达GTC 2026即将发布"前所未见"AI芯片</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>千问APP月活突破1亿，在学生和白领群体增长迅猛</li>
-                    <li>Hugging Face累计下载量达7亿次</li>
-                    <li>成为全球开发者采用率最高的开源模型</li>
-                    <li>发布Qwen 3.5-Plus，性能对标Gemini 3</li>
+                    <li>3月16-19日在美国圣何塞举办，黄仁勋将发表主题演讲</li>
+                    <li>预计发布Rubin Ultra和Feynman架构新品</li>
+                    <li>光电封装CPO/NPO技术进入规模化商用</li>
+                    <li>SerDes速率从112G向448G跃进，算力从PB级到EB级跨越</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 阿里巴巴集团</div>
+            <div class="source"><strong>来源:</strong> 雪球/搜狐财经</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻6 -->
+    <!-- 新闻6：阿里千问与字节豆包进展 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">政策监管</span>
-            <h2>Anthropic起诉美国国防部</h2>
+            <span class="category">国内动态</span>
+            <h2>国内大模型持续迭代，阿里、字节加码AI基建</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>五角大楼将Anthropic列为"供应链风险"</li>
-                    <li>限制与军事承包商合作，直接影响核心业务</li>
-                    <li>30+名OpenAI和Google员工联名支持Anthropic</li>
-                    <li>包括Google DeepMind首席科学家Jeff Dean</li>
+                    <li>阿里云通义千问核心调用费用降价50%，推动模型能力普惠化</li>
+                    <li>字节跳动2026年资本开支达1600亿元，聚焦AI原生云</li>
+                    <li>国内厂商推进"一人公司"模式，单人开发者+AI Agent颠覆垂直行业</li>
+                    <li>AI教育元年启动，教育部明确AI课全面覆盖中小学</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> Wired, TechCrunch</div>
+            <div class="source"><strong>来源:</strong> 新浪财经/教育宝</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻7 -->
+    <!-- 新闻7：AI Agent生态爆发 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">技术趋势</span>
-            <h2>AI三巨头进入"加速逃逸"阶段</h2>
+            <span class="category">应用创新</span>
+            <h2>OpenClaw引爆Agent生态，MoltBook打开AI自治社交</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>OpenAI、Google DeepMind、Anthropic形成第一梯队</li>
-                    <li>递归自我改进引擎已点火，Meta和xAI难以追赶</li>
-                    <li>2026下半年将甩开所有竞争对手</li>
-                    <li>未来六个月将彻底改变AI竞争格局</li>
+                    <li>OpenClaw开源项目GitHub Star突破25万，Mac Mini全球断货</li>
+                    <li>MoltBook纯AI Agent社交网络48小时涌入十万级智能体</li>
+                    <li>微软推出Copilot Wave 3，Copilot Cowork任务协作AI代理上线</li>
+                    <li>智能体从"被动工具"升级为"主动主体"，百亿智能体时代到来</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 新智元, Andrew Curran</div>
+            <div class="source"><strong>来源:</strong> 澎湃新闻/今日头条</div>
         </div>
         <div class="slide-number"></div>
     </div>
 
-    <!-- 新闻8 -->
+    <!-- 新闻8：AI治理与安全 -->
     <div class="slide">
         <div class="slide-content news-slide">
-            <span class="category">硬件创新</span>
-            <h2>清华推出全球首款柔性AI芯片FLEXI</h2>
+            <span class="category">治理与伦理</span>
+            <h2>全球AI治理框架加速落地，安全与伦理成核心关切</h2>
             <div class="highlights">
                 <h3>核心要点</h3>
                 <ul>
-                    <li>全球首款量产级全柔性存算一体AI芯片</li>
-                    <li>可弯曲、超薄、低功耗特点</li>
-                    <li>适配可穿戴设备、医疗、物联网场景</li>
-                    <li>标志中国AI硬件源头创新能力大幅跃升</li>
+                    <li>国内出台新规：AI生成内容必须标注"我是AI"</li>
+                    <li>OpenAI收购Promptfoo强化安全，补齐提示工程安全短板</li>
+                    <li>Anthropic起诉美国政府，反对被列入国家安全风险名单</li>
+                    <li>欧盟发布2026版AI教学指南，聚焦数据主权与教师赋能</li>
                 </ul>
             </div>
-            <div class="source"><strong>来源:</strong> 清华大学</div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 新闻9 -->
-    <div class="slide">
-        <div class="slide-content news-slide">
-            <span class="category">机器人</span>
-            <h2>人形机器人春晚亮相引爆市场</h2>
-            <div class="highlights">
-                <h3>核心要点</h3>
-                <ul>
-                    <li>宇树、松延动力等机器人登陆央视春晚</li>
-                    <li>完成武术、后空翻等高难度表演</li>
-                    <li>全网搜索量环比增长超300%</li>
-                    <li>荣耀将在MWC发布首款消费级人形机器人</li>
-                </ul>
-            </div>
-            <div class="source"><strong>来源:</strong> 人民日报, 雪球</div>
-        </div>
-        <div class="slide-number"></div>
-    </div>
-
-    <!-- 新闻10 -->
-    <div class="slide">
-        <div class="slide-content news-slide">
-            <span class="category">投资趋势</span>
-            <h2>算力成为2026年核心投资主线</h2>
-            <div class="highlights">
-                <h3>核心要点</h3>
-                <ul>
-                    <li>2025-2030年中国Token消耗量将增长400倍</li>
-                    <li>光模块、液冷、IDC全产业链受益</li>
-                    <li>OpenAI至2030年算力支出将达6000亿美元</li>
-                    <li>机构重点推荐旭创、新易盛、寒武纪等标的</li>
-                </ul>
-            </div>
-            <div class="source"><strong>来源:</strong> 摩根大通, 天风通信</div>
+            <div class="source"><strong>来源:</strong> 今日头条/腾讯新闻</div>
         </div>
         <div class="slide-number"></div>
     </div>
@@ -490,25 +319,23 @@
     <!-- 总结页 -->
     <div class="slide">
         <div class="slide-content title-slide">
-            <h1>本周趋势总结</h1>
-            <div class="highlights" style="text-align: left; max-width: 80%; margin: 40px auto;">
-                <ul style="font-size: 28px; line-height: 2;">
-                    <li style="margin-bottom: 20px;">AI三巨头加速分化，递归自我改进成为关键</li>
-                    <li style="margin-bottom: 20px;">就业市场深度重构，AI替代效应显著加速</li>
-                    <li style="margin-bottom: 20px;">算力需求爆发式增长，成为投资核心主线</li>
-                    <li style="margin-bottom: 20px;">国产AI全面突破，千问、Seedance引领创新</li>
-                </ul>
+            <h1>📊 今日核心数据</h1>
+            <div class="subtitle" style="font-size: 3.2vh; line-height: 1.8; max-width: 80%; margin: 4vh auto;">
+                <p style="margin-bottom: 2vh;">🔸 OpenAI GPT-5.4 OSWorld测试达<strong>75.0%</strong>，首次超越人类</p>
+                <p style="margin-bottom: 2vh;">🔸 全国绿电直连项目总装机<strong>3259万千瓦</strong>，2026年目标超<strong>15GW</strong></p>
+                <p style="margin-bottom: 2vh;">🔸 OpenClaw GitHub Star突破<strong>25万</strong>，MoltBook涌入<strong>10万+</strong>智能体</p>
+                <p>🔸 字节跳动AI基建投入<strong>1600亿</strong>，阿里三年<strong>3800亿</strong></p>
             </div>
         </div>
         <div class="slide-number"></div>
     </div>
 
     <script>
-        // 幻灯片导航
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
 
+        // 初始化页码
         slides.forEach((slide, index) => {
             const pageNum = slide.querySelector('.slide-number');
             if (pageNum) {
@@ -551,7 +378,7 @@
             if (touchEndX - touchStartX > 50) prevSlide();
         }, {passive: true});
 
-        // 点击翻页
+        // 点击翻页 (左1/3上一页, 右1/3下一页)
         document.addEventListener('click', (e) => {
             const clickX = e.clientX;
             const windowWidth = window.innerWidth;
@@ -560,179 +387,6 @@
             } else if (clickX > windowWidth * 2 / 3) {
                 nextSlide();
             }
-        });
-
-        // 初始化图表
-        window.addEventListener('DOMContentLoaded', () => {
-            // 图表1: 融资对比
-            const investmentCtx = document.getElementById('investmentChart').getContext('2d');
-            new Chart(investmentCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['OpenAI', 'Anthropic', 'Google AI', 'xAI', 'DeepSeek', '字节豆包'],
-                    datasets: [{
-                        label: '2025年融资/投入（亿美元）',
-                        data: [11000, 200, 0, 60, 0, 0],
-                        backgroundColor: 'rgba(40, 40, 40, 0.85)',
-                        borderColor: '#000',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: '主要AI企业融资规模',
-                            font: { size: 18, weight: 'bold' },
-                            color: '#000'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: '#666' },
-                            grid: { color: '#e0e0e0' }
-                        },
-                        x: {
-                            ticks: { color: '#666' },
-                            grid: { display: false }
-                        }
-                    }
-                }
-            });
-
-            // 图表2: 裁员趋势
-            const layoffCtx = document.getElementById('layoffChart').getContext('2d');
-            new Chart(layoffCtx, {
-                type: 'line',
-                data: {
-                    labels: ['2024 Q1', '2024 Q2', '2024 Q3', '2024 Q4', '2025 Q1', '2025 Q2', '2025 Q3', '2025 Q4', '2026 Q1'],
-                    datasets: [{
-                        label: 'AI相关裁员人数',
-                        data: [2800, 4500, 6200, 8100, 11000, 14500, 18200, 22300, 12000],
-                        borderColor: '#000',
-                        backgroundColor: 'rgba(100, 100, 100, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointRadius: 5,
-                        pointBackgroundColor: '#000',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: 'AI相关裁员趋势（季度数据）',
-                            font: { size: 18, weight: 'bold' },
-                            color: '#000'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: { color: '#666' },
-                            grid: { color: '#e0e0e0' }
-                        },
-                        x: {
-                            ticks: { color: '#666' },
-                            grid: { color: '#f0f0f0' }
-                        }
-                    }
-                }
-            });
-
-            // 图表3: 估值分布
-            const valuationCtx = document.getElementById('valuationChart').getContext('2d');
-            new Chart(valuationCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['OpenAI', 'Anthropic', 'xAI', 'Perplexity', 'Cohere', '其他'],
-                    datasets: [{
-                        label: '估值（亿美元）',
-                        data: [8300, 3500, 800, 90, 60, 250],
-                        backgroundColor: [
-                            'rgba(30, 30, 30, 0.9)',
-                            'rgba(60, 60, 60, 0.9)',
-                            'rgba(90, 90, 90, 0.9)',
-                            'rgba(120, 120, 120, 0.9)',
-                            'rgba(150, 150, 150, 0.9)',
-                            'rgba(180, 180, 180, 0.9)'
-                        ],
-                        borderColor: '#fff',
-                        borderWidth: 3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: {
-                                font: { size: 14 },
-                                color: '#333',
-                                padding: 15
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: '主要AI企业估值分布（2026）',
-                            font: { size: 18, weight: 'bold' },
-                            color: '#000'
-                        }
-                    }
-                }
-            });
-
-            // 图表4: 市场规模
-            const marketCtx = document.getElementById('marketChart').getContext('2d');
-            new Chart(marketCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['大模型训练', '推理服务', '企业应用', '消费级产品', '算力基础设施', '开发工具', '安全服务', '其他'],
-                    datasets: [{
-                        label: '市场规模（亿美元）',
-                        data: [2800, 2200, 1850, 1600, 3200, 980, 720, 1200],
-                        backgroundColor: 'rgba(40, 40, 40, 0.85)',
-                        borderColor: '#000',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: 'AI应用领域市场规模（2026）',
-                            font: { size: 18, weight: 'bold' },
-                            color: '#000'
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            ticks: { color: '#666' },
-                            grid: { color: '#e0e0e0' }
-                        },
-                        y: {
-                            ticks: { color: '#666' },
-                            grid: { display: false }
-                        }
-                    }
-                }
-            });
         });
     </script>
 </body>
