@@ -6,42 +6,33 @@ description: 自动化生成 AI 报告并更新首页索引
 
 当需要生成新的日报（Daily）或周报（Weekly）时，请 AI Agent 严格遵循以下标准程序：
 
-## 1. 准备工作 (Preparation)
--   **获取当前日期**：确定当前年份 (YYYY)、月份 (MM) 和日期 (DD)。
--   **确定文件路径**：
+## 1. 任务定义 (Task Definition)
+1.  **搜索与深度总结**：搜索并总结最近一周（周报）或当天（日报）的 AI 行业重要动态。包括：技术突破、产品发布、行业巨头动向、融资并购、重要研究论文等。
+2.  **数据驱动**：优先寻找带有具体数据的动态。
+3.  **设计风格**：黑色/极简/全屏 Slides。
+
+## 2. 内容结构要求 (Content Structure)
+-   **第 1 页：标题页** - 报告标题及当天日期。
+-   **第 2 页：核心数据概览** - 卡片式布局，展示 4-6 个行业核心 KPI 或本报摘要数据。
+-   **第 3-6 页：行业深度可视化 (Flexible Charts)**：
+    *   **不固定内容**：AI 可根据当期热点选择最具代表性的 2-4 个行业维度进行可视化。
+    *   **可选方向**：投融资规模趋势、大模型 Benchmark 性能对比、算力消耗/基础设施增长、AI 相关就业市场变动、重点企业财报拆解、全球监管政策分布等。
+-   **新闻详情页 (Enhanced News Slides)**：
+    *   **常规模式**：分类标签、新闻标题、核心要点（列表）、来源。
+    *   **数据增强模式**：**如果新闻本身包含关键数值（如性能提升百分比、市场份额变化、用户增长等），优先使用 [Chart.js](https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js) 在该页面内嵌入一个微型图表（如条型图、圆环图）进行可视化表达。**
+
+## 3. 技术与设计规范 (Technical & Design)
+1.  **模板使用**：必须基于 `templates/ai_news_template.html`。
+2.  **交互体验**：键盘左右键、点击屏幕两侧、触摸滑动翻页。
+3.  **视图控制**：100vh 全屏，无滚动条。
+4.  **图表设计**：
+    *   **高度互动**：支持悬停（Hover）详情展示。
+    *   **黑白极简**：黑色系为主，关键数据点可用对比色（如金、蓝或柔和的红）突出，但严禁使用过时的鲜艳配色。
+    *   **响应式**：图表需自适应不同尺寸的屏幕。
+
+## 4. 文件存储与索引更新 (Persistence)
+-   **路径规范**：
     -   日报：`daily_reports/YYYY-MM/ai_news_YYYY-MM-DD.html`
     -   周报：`weekly_reports/YYYY-MM/ai_weekly_YYYY-MM-DD.html`
--   **创建目录**：如果对应的 `YYYY-MM` 文件夹不存在，请先行创建。
-
-## 2. 内容生成 (Generation)
--   **读取模板**：从 `templates/ai_news_template.html` 读取基础结构。
--   **填充内容**：
-    -   更新标题、日期、核心数据概览、主要动态及 Chart.js 图表数据。
-    -   确保所有视觉风格（配色、字体）与现有报告保持一致。
--   **写入文件**：将生成的 HTML 内容写入第 1步确定的文件路径，并使用 `UTF-8` 编码。
-
-## 3. 首页索引更新 (Index Update)
--   **定位 Section**：打开根目录下的 `index.html`。
--   **插入新卡片**：
-    -   在对应的 `<h2 class="section-title">`（每周综述 或 每日速递）下方的 `<div class="grid">` **首位**（即最上方）插入新的 HTML 卡片。
-    -   **卡片模板**：
-        ```html
-        <a href="[路径]" class="card">
-            <div>
-                <div class="card-type">[Daily News | Weekly Report]</div>
-                <div class="card-title">[报告标题]</div>
-                <div class="card-date">[YYYY年MM月DD日]</div>
-            </div>
-            <div class="card-footer">查看详情</div>
-        </a>
-        ```
--   **保持整洁**：检查 `index.html` 的结构是否依然完整，确保没有破坏 HTML 标签嵌套。
-
-## 4. 提交清理 (Finalize)
--   **Git 操作**：执行 `git add .`。
--   **Commit 信息**：使用规范的提交信息，例如 `feat: add ai_news_YYYY-MM-DD and update index`。
-
----
-
-> [!IMPORTANT]
-> **始终保持时间倒序**：最新的报告必须出现在 `index.html` 列表的最上方，以便用户第一时间看到。
+-   **首页同步**：更新根目录 `index.html`，新报告必须插入在对应分类的最上方（保持时间倒序）。
+-   **Git 提交**：完成后执行 `git add .` 并 Commit（推荐信息格式：`feat: data-rich report for YYYY-MM-DD`）。
