@@ -8,8 +8,9 @@ description: 自动化生成 AI 报告并更新首页索引
 
 ## 1. 任务定义 (Task Definition)
 1.  **搜索与深度总结**：搜索并总结最近一周（周报）或当天（日报）的 AI 行业重要动态。包括：技术突破、产品发布、行业巨头动向、融资并购、重要研究论文等。
-2.  **数据驱动**：优先寻找带有具体数据的动态。
-3.  **设计风格**：黑色/极简/全屏 Slides。
+2.  **明确日期 (Date Verification)**：**严禁**依赖对话开启时的初始日期。Agent 必须从最新的系统环境（如 `ADDITIONAL_METADATA` 中的 `current local time`）获取当前的真实日期。所有报告内容、文件名、Git 提交信息中的日期必须保持实时准确。
+3.  **数据驱动**：优先寻找带有具体数据的动态。
+4.  **设计风格**：黑色/极简/全屏 Slides。
 
 ## 2. 内容结构要求 (Content Structure)
 -   **第 1 页：标题页** - 报告标题及当天日期。
@@ -34,5 +35,6 @@ description: 自动化生成 AI 报告并更新首页索引
 -   **路径规范**：
     -   日报：`daily_reports/YYYY-MM/ai_news_YYYY-MM-DD.html`
     -   周报：`weekly_reports/YYYY-MM/ai_weekly_YYYY-MM-DD.html`
+    -   注意：必须使用**执行任务时**的真实年、月、日。
 -   **首页同步**：更新根目录 `index.html`，新报告必须插入在对应分类的最上方（保持时间倒序）。
--   **Git 提交**：完成后执行 `git add .` 并 Commit（推荐信息格式：`feat: data-rich report for YYYY-MM-DD`）。
+-   **Git 提交**：完成后执行 `git add .` 并 Commit（推荐信息格式：`feat: data-rich report for YYYY-MM-DD`，其中日期务必准确）。
