@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI新闻日报 - 2026年3月28日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background: white;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-content {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            padding: 8vh 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 标题页样式 */
+        .title-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 8vh;
+            color: #000;
+            margin-bottom: 3vh;
+            font-weight: 800;
+        }
+
+        .title-slide .subtitle {
+            font-size: 4vh;
+            color: #666;
+            margin-bottom: 6vh;
+            font-weight: 400;
+        }
+
+        .title-slide .date {
+            font-size: 3vh;
+            color: #1a1a1a;
+            padding: 1.5vh 4vw;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        /* 内容页样式 */
+        .news-slide h2 {
+            font-size: 5.5vh;
+            color: #000;
+            margin-bottom: 4vh;
+            font-weight: 700;
+            line-height: 1.2;
+            border-left: 12px solid #000;
+            padding-left: 3vw;
+        }
+
+        .news-slide .category {
+            display: inline-block;
+            color: #999;
+            font-size: 1.6vh;
+            margin-bottom: 2vh;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5vh;
+        }
+
+        .news-slide .highlights h3 {
+            font-size: 3vh;
+            color: #444;
+            margin-bottom: 2vh;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        .news-slide .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-slide .highlights li {
+            font-size: 3vh;
+            color: #222;
+            line-height: 1.6;
+            margin-bottom: 2vh;
+            padding-left: 3vw;
+            position: relative;
+        }
+
+        .news-slide .highlights li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .news-slide .source {
+            margin-top: 4vh;
+            padding-top: 3vh;
+            border-top: 2px solid #eee;
+            font-size: 2.2vh;
+            color: #888;
+        }
+
+        /* 辅助信息 */
+        .slide-number {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            font-size: 1.8vh;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .navigation-hint {
+            position: absolute;
+            bottom: 4vh;
+            left: 4vw;
+            font-size: 1.6vh;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面幻灯片 -->
+    <div class="slide active">
+        <div class="slide-content title-slide">
+            <h1>🤖 AI Agent元年：从技术突破到产业重构</h1>
+            <div class="subtitle">智能体浪潮下的算力竞赛与生态演进</div>
+            <div class="date">2026年3月28日</div>
+        </div>
+        <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻1: 西安AI OPC社区 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">产业生态</span>
+            <h2>西安AI OPC创新社区启动：一人公司黄金时代</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>西安高新区启动AI OPC创新社区,现有237家AI规上企业</li>
+                    <li>OPC(一人公司)模式成为AI创业主流范式,降低创业门槛</li>
+                    <li>社区提供AI工具链、算力资源和商业化支持</li>
+                    <li>预计2026年西安AI产业规模突破1000亿元</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 新华社、西安高新区</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻2: Claude 4发布 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">模型突破</span>
+            <h2>Claude 4发布：7小时连续工作能力刷新纪录</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>Opus 4和Sonnet 4正式发布,支持连续7小时自主工作</li>
+                    <li>SWE-bench编程测试得分72.5%,超越GPT-4o的71.9%</li>
+                    <li>3月频繁宕机引发稳定性质疑,Anthropic承诺优化基础设施</li>
+                    <li>与五角大楼AI军事应用限制引发争议</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> Anthropic官方、TechCrunch</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻3: 华为昇腾芯片 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">芯片战争</span>
+            <h2>华为昇腾950PR：2.87倍性能碾压英伟达H20</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>昇腾950PR芯片性能达到英伟达H20的2.87倍</li>
+                    <li>国产化率超90%,打破美国算力芯片垄断</li>
+                    <li>支持训练万亿参数大模型,能耗降低40%</li>
+                    <li>已在阿里云、腾讯云等平台大规模部署</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 华为官方、芯智讯</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻4: Token经济 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">数据趋势</span>
+            <h2>Token经济崛起：日均40万亿的算力消耗</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>全球AI模型日均Token消耗从1000亿暴增至40万亿(400倍增长)</li>
+                    <li>Token成为AI公司薪酬筹码和创业资本</li>
+                    <li>推理成本下降95%驱动应用爆发式增长</li>
+                    <li>2026年预计Token交易市场规模达500亿美元</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> AI研究机构、36氪</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻5: AI Agent市场 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">市场爆发</span>
+            <h2>AI Agent市场爆发：万亿市场开启</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>2026年被称为"AI Agent元年",市场规模预计达1.2万亿元</li>
+                    <li>多智能体协作成为主流技术路径,单任务准确率提升至92%</li>
+                    <li>企业级Agent应用场景覆盖客服、运维、研发等领域</li>
+                    <li>清华、北大等高校开设AI Agent培训课程</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> IDC、清华大学AI研究院</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻6: NVIDIA GTC 2026 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">行业大会</span>
+            <h2>NVIDIA GTC 2026：Feynman架构与光互联革命</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>发布Feynman架构芯片,性能较Hopper提升5倍</li>
+                    <li>推出NemoClaw平台,支持万卡集群训练</li>
+                    <li>光互联技术将芯片间带宽提升至10TB/s</li>
+                    <li>与OpenAI、Anthropic深化战略合作</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> NVIDIA GTC 2026、The Verge</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻7: 白宫AI监管 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">政策法规</span>
+            <h2>白宫AI监管框架：全球治理新阶段</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>白宫发布联邦AI监管框架,修订《网络安全法》</li>
+                    <li>实施分级风险管理,高风险应用需强制审计</li>
+                    <li>中国银行业披露30+起AI数据安全违规案例</li>
+                    <li>欧盟、中国、美国监管政策趋于协调一致</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 白宫官网、路透社</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻8: 小米投资 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">投资热潮</span>
+            <h2>小米宣布3年投入600亿：AI+IoT全面布局</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>小米宣布未来3年投入600亿元用于AI研发</li>
+                    <li>重点布局AI Agent、端侧大模型和智能家居</li>
+                    <li>小爱同学升级为多模态AI助手,用户突破5亿</li>
+                    <li>多地国资跟进加码,AI产业进入资本密集期</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 小米官方、投资界</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻9: 中关村论坛 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">应用落地</span>
+            <h2>中关村论坛：AI医院从共识走向现实</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>中关村论坛发布"AI医院共识",推动医疗AI标准化</li>
+                    <li>深圳上线政务AI助手,日均处理咨询10万次</li>
+                    <li>多智能体协作在制造业应用,生产效率提升35%</li>
+                    <li>AI声音权保护成焦点,配音演员联合维权</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 中关村论坛、深圳政府网</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 总结页 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">每日总结</span>
+            <h2>2026年3月28日 核心数据</h2>
+            <div class="highlights">
+                <h3>关键指标</h3>
+                <ul>
+                    <li>237家 - 西安AI规上企业数量</li>
+                    <li>40万亿 - 全球AI日均Token消耗量(400倍增长)</li>
+                    <li>2.87倍 - 华为昇腾950PR相比英伟达H20性能提升</li>
+                    <li>600亿元 - 小米未来3年AI投资规模</li>
+                    <li>72.5% - Claude Opus 4的SWE-bench编程得分</li>
+                    <li>92% - 多智能体协作单任务准确率</li>
+                    <li>1.2万亿元 - 2026年AI Agent市场预期规模</li>
+                </ul>
+            </div>
+            <div class="source"><strong>数据来源:</strong> 综合公开报道整理</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // 初始化页码
+        slides.forEach((slide, index) => {
+            const pageNum = slide.querySelector('.slide-number');
+            if (pageNum) {
+                pageNum.textContent = `${index + 1} / ${totalSlides}`;
+            }
+        });
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // 触摸滑动
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, {passive: true});
+
+        // 点击翻页 (左1/3上一页, 右1/3下一页)
+        document.addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const windowWidth = window.innerWidth;
+            if (clickX < windowWidth / 3) {
+                prevSlide();
+            } else if (clickX > windowWidth * 2 / 3) {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
