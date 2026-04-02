@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI新闻日报 - 2026年4月2日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background: white;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-content {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            padding: 8vh 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 标题页样式 */
+        .title-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 8vh;
+            color: #000;
+            margin-bottom: 3vh;
+            font-weight: 800;
+        }
+
+        .title-slide .subtitle {
+            font-size: 4vh;
+            color: #666;
+            margin-bottom: 6vh;
+            font-weight: 400;
+        }
+
+        .title-slide .date {
+            font-size: 3vh;
+            color: #1a1a1a;
+            padding: 1.5vh 4vw;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        /* 内容页样式 */
+        .news-slide h2 {
+            font-size: 5.5vh;
+            color: #000;
+            margin-bottom: 4vh;
+            font-weight: 700;
+            line-height: 1.2;
+            border-left: 12px solid #000;
+            padding-left: 3vw;
+        }
+
+        .news-slide .category {
+            display: inline-block;
+            color: #999;
+            font-size: 1.6vh;
+            margin-bottom: 2vh;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5vh;
+        }
+
+        .news-slide .highlights h3 {
+            font-size: 3vh;
+            color: #444;
+            margin-bottom: 2vh;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        .news-slide .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-slide .highlights li {
+            font-size: 3vh;
+            color: #222;
+            line-height: 1.6;
+            margin-bottom: 2vh;
+            padding-left: 3vw;
+            position: relative;
+        }
+
+        .news-slide .highlights li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .news-slide .source {
+            margin-top: 4vh;
+            padding-top: 3vh;
+            border-top: 2px solid #eee;
+            font-size: 2.2vh;
+            color: #888;
+        }
+
+        /* 辅助信息 */
+        .slide-number {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            font-size: 1.8vh;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .navigation-hint {
+            position: absolute;
+            bottom: 4vh;
+            left: 4vw;
+            font-size: 1.6vh;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面幻灯片 -->
+    <div class="slide active">
+        <div class="slide-content title-slide">
+            <h1>🤖 AI 行业日报</h1>
+            <div class="subtitle">OpenAI史上最大融资1220亿美元 · Anthropic遭美国防部封杀又被军方使用</div>
+            <div class="date">2026年4月2日</div>
+        </div>
+        <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻1 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">模型融资</span>
+            <h2>OpenAI完成史上最大私募融资1220亿美元</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>单轮私募1220亿美元，投后估值8520亿美元，距离万亿美元仅一步之遥</li>
+                    <li>亚马逊投资500亿美元，英伟达和软银各投资300亿美元，成为主要出资方</li>
+                    <li>每周活跃用户接近9亿，付费用户超5000万,去年营收131亿美元,为IPO做准备</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> OpenAI官方公告</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻2 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">AI军事应用</span>
+            <h2>Anthropic遭美国防部列为供应链风险又被军方使用</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>因拒绝开发致命自主武器,被美国防部列为"供应链风险"企业,成为唯一被列入的美国公司</li>
+                    <li>美军对伊朗空袭中实际使用Claude模型进行情报收集、目标选择、战场模拟等工作</li>
+                    <li>CEO强调反对应用于完全自主武器和大规模监控,但同时表示尊重美军作战决策</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 华尔街日报、Politico</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻3 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">大模型竞争</span>
+            <h2>Anthropic完成300亿美元融资估值3800亿美元</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>G轮融资300亿美元,投后估值3800亿美元,成为科技史上第二大私募融资</li>
+                    <li>年化营收达140亿美元,80%来自企业客户,Claude Code单品年化营收突破25亿美元</li>
+                    <li>企业市场份额从2023年的12%飙升至2025年底的40%,营收三年增长近百倍</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> Anthropic官方</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻4 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">AI编程工具</span>
+            <h2>Claude Code席卷全网引发编程革命</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>马斯克宣称"2026年就是奇点之年",Midjourney创始人称圣诞假期敲代码比过去十年还多</li>
+                    <li>谷歌工程师称70%-80%代码由AI编写,角色转变为"代码审查",工作效率提升4倍</li>
+                    <li>OpenClaw项目几周内GitHub星标突破10万,AI开始自我安装新功能和技能</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> Twitter、GitHub</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻5 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">世界移动通信大会</span>
+            <h2>MWC 2026聚焦AI成核心主题</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>以"智能新纪元"为主题,10.5万人和2900家参展商参与,AI成为核心议题</li>
+                    <li>发布"开放电信AI全球倡议",加速电信级AI发展和模型开发评估</li>
+                    <li>中国350家企业参展增长21%,AI手机、智能机器人、可穿戴AI设备成为亮点</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> MWC官网、Forbes</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻6 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">中国两会</span>
+            <h2>中国两会热议AI发展与治理成为热词</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>政府工作报告提出打造智能经济新形态,深化拓展"人工智能+"行动</li>
+                    <li>"十五五"规划提出全方位推进数智技术赋能,抢占AI产业应用制高点</li>
+                    <li>强调统筹发展和安全,坚持AI为人所用、为人服务、为人所控的原则</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 新华社、中国政府网</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻7 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">模型迭代</span>
+            <h2>阿里通义千问发布Qwen3.5-Omni全模态模型</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>斩获215项SOTA,支持256K上下文,可处理10小时音频、400秒720P视频</li>
+                    <li>涌现Audio-Visual Vibe Coding能力,可直接根据音视频生成代码</li>
+                    <li>语音识别覆盖113种语言/方言,语音生成支持36种语言,原生全模态架构</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 阿里云官方</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻8 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">AI视频生成</span>
+            <h2>爱诗科技发布PixVerse V6迈入物理常识时代</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>15秒生成1080P高清音视频,生成速度行业领先,人物真实感达实拍级</li>
+                    <li>攻克物理模拟无穿模难题,符合自然规律,攻克镜头连贯性难题支持多镜头短片</li>
+                    <li>支持原生音频生成,兼容Claude Code、Codex等编码代理,支持CLI集成</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 爱诗科技官方</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻9 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">AI安全</span>
+            <h2>黑客利用AI对墨西哥政府发动大规模网络攻击</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>黑客利用Claude聊天软件编写脚本窃取墨西哥政府机构敏感信息</li>
+                    <li>一个月内侵入联邦税务局、全国选举机构及各州政府,共150GB数据被盗</li>
+                    <li>涉及1.95亿墨西哥公民个人信息,黑客通过多轮对话突破模型安全防护</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 彭博社、Gambit Security</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 总结页 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">每日总结</span>
+            <h2>今日核心数据</h2>
+            <div class="highlights">
+                <h3>关键数字</h3>
+                <ul>
+                    <li>OpenAI融资金额: 1220亿美元(史上最大私募)</li>
+                    <li>Anthropic估值: 3800亿美元</li>
+                    <li>Claude Code年化营收: 25亿美元</li>
+                    <li>OpenAI付费用户: 5000万</li>
+                    <li>中国MWC参展企业: 350家(增长21%)</li>
+                </ul>
+            </div>
+            <div class="source"><strong>数据来源:</strong> 综合各大科技媒体</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // 初始化页码
+        slides.forEach((slide, index) => {
+            const pageNum = slide.querySelector('.slide-number');
+            if (pageNum) {
+                pageNum.textContent = `${index + 1} / ${totalSlides}`;
+            }
+        });
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // 触摸滑动
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, {passive: true});
+
+        // 点击翻页 (左1/3上一页, 右1/3下一页)
+        document.addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const windowWidth = window.innerWidth;
+            if (clickX < windowWidth / 3) {
+                prevSlide();
+            } else if (clickX > windowWidth * 2 / 3) {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
