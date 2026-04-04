@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI新闻日报 - 2026年4月4日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background: white;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-content {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            padding: 8vh 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 标题页样式 */
+        .title-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 8vh;
+            color: #000;
+            margin-bottom: 3vh;
+            font-weight: 800;
+        }
+
+        .title-slide .subtitle {
+            font-size: 4vh;
+            color: #666;
+            margin-bottom: 6vh;
+            font-weight: 400;
+        }
+
+        .title-slide .date {
+            font-size: 3vh;
+            color: #1a1a1a;
+            padding: 1.5vh 4vw;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        /* 内容页样式 */
+        .news-slide h2 {
+            font-size: 5.5vh;
+            color: #000;
+            margin-bottom: 4vh;
+            font-weight: 700;
+            line-height: 1.2;
+            border-left: 12px solid #000;
+            padding-left: 3vw;
+        }
+
+        .news-slide .category {
+            display: inline-block;
+            color: #999;
+            font-size: 1.6vh;
+            margin-bottom: 2vh;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5vh;
+        }
+
+        .news-slide .highlights h3 {
+            font-size: 3vh;
+            color: #444;
+            margin-bottom: 2vh;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        .news-slide .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-slide .highlights li {
+            font-size: 3vh;
+            color: #222;
+            line-height: 1.6;
+            margin-bottom: 2vh;
+            padding-left: 3vw;
+            position: relative;
+        }
+
+        .news-slide .highlights li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .news-slide .source {
+            margin-top: 4vh;
+            padding-top: 3vh;
+            border-top: 2px solid #eee;
+            font-size: 2.2vh;
+            color: #888;
+        }
+
+        /* 辅助信息 */
+        .slide-number {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            font-size: 1.8vh;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .navigation-hint {
+            position: absolute;
+            bottom: 4vh;
+            left: 4vw;
+            font-size: 1.6vh;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面幻灯片 -->
+    <div class="slide active">
+        <div class="slide-content title-slide">
+            <h1>🤖 2026智能体元年降临 · OpenAI烧钱170亿美元押注算力</h1>
+            <div class="subtitle">AI行业从"聊天"跨向"做事" · 博鳌论坛定调中国智能体爆发</div>
+            <div class="date">2026年4月4日</div>
+        </div>
+        <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻1 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">行业趋势</span>
+            <h2>2026年或成"智能体AI元年"，博鳌论坛热议人机协作</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>中国工程院院士张亚勤将2026年定义为"智能体AI元年"，AI从生成式走向智能体</li>
+                    <li>"一人公司"兴起：一个人加AI智能体可完成过去整团队工作，蔡冠深鼓励企业大胆使用</li>
+                    <li>博鳌现场机器人制作咖啡、AI眼镜办公，数字嘉宾"薇薇·朵拉"作为主持人亮相论坛</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 中国新闻网、博鳌亚洲论坛</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻2 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">企业动态</span>
+            <h2>OpenAI与Anthropic双雄对决：2026年IPO之战提前打响</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>OpenAI 2026年预计烧钱170亿美元，计划融资1000亿美元，估值冲向8300亿美元</li>
+                    <li>Anthropic完成300亿美元融资，估值3800亿美元，两家公司IPO时间或提前至2024年底</li>
+                    <li>OpenAI引入广告模式增收，Anthropic坚持无广告并在超级碗投放广告攻击对手商业化路径</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 雪球、36氪</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻3 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">技术突破</span>
+            <h2>中美AI竞争焦点转移：算法架构创新成为突破点</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>DeepSeek等国产模型走"更轻、更聪明、更高效"路线，推动AI从"拼规模"转向"拼密度"</li>
+                    <li>中国AI企业提出"密度法则"：用更少计算和数据，更高效地得到更多智能</li>
+                    <li>稀疏注意力机制成主流技术路径，中国信通院报告指出DeepSeek的NSA等架构引领前沿</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 中国新闻社、中国信通院</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻4 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">产业落地</span>
+            <h2>OpenAI发布Frontier企业级平台，AI变身"数字员工"</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>Frontier提供共享业务上下文、智能体执行环境、身份治理等核心能力，HP、Uber成首批客户</li>
+                    <li>每个AI智能体拥有员工ID，企业可像管理员工权限一样设定AI权限边界和访问限制</li>
+                    <li>OpenAI派驻前线部署工程师协助企业架构设计，解决AI在生产环境中"最后一百米"难题</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> OpenAI、雪球</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻5 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">应用创新</span>
+            <h2>OpenAI收购硅谷播客TBPN，马斯克诉讼案开庭在即</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>OpenAI收购硅谷知名播客TBPN，该节目每日下午2点直播3小时，曾采访Sam Altman等</li>
+                    <li>收购由首席政治官Chris Lehane主导，正值马斯克诉Altman案即将开庭的敏感时期</li>
+                    <li>OpenAI加速渗透内容产业，从播客到电影，AI公司布局内容生态引发媒体格局担忧</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 今日头条AI日报</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻6 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">融资动态</span>
+            <h2>智谱AI半月内融资15亿，国资热捧大模型商业化突围</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>智谱获华发集团战略投资5亿元，双方将在珠海共建首个城市级GLM大模型空间</li>
+                    <li>华发集团主导的珠海新质生产力基金总规模800亿元，重点投向AI等前沿领域</li>
+                    <li>国内AI企业上市潮扎堆，智谱、天数智芯、MiniMax等今年1月以来密集IPO</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 新浪财经</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻7 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">人才培养</span>
+            <h2>AI素养成职场第一竞争力，不会用AI如同百年前不会用电力</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>专家郑永年警告AI可能导致"人工智残"：人类因易得性而停止思考，生产力鸿沟扩大</li>
+                    <li>中学生善用AI工具可能比大学生更有竞争力，大学落后课本无法与AI知识量抗衡</li>
+                    <li>新落后生产力不再由年龄学历决定，而是由"拒斥AI"导致的生产力脱节造成</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 科技日报、笔记侠</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻8 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">政策治理</span>
+            <h2>中国AI治理路径日益清晰，世界经济论坛称中国"引领全球"</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>国务院印发《关于深入实施"人工智能+"行动的意见》，推进AI健康发展相关立法工作</li>
+                    <li>世界经济论坛网站刊文：中国AI战略以适配性监管体系与坚实基础设施为支撑，为全球树立典范</li>
+                    <li>欧盟《人工智能法案》2026年8月大部分规则生效，美国联邦政府2025年12月要求统一监管</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 国务院、世界经济论坛</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻9 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">数据中心</span>
+            <h2>全球AI算力需求激增，绿色数据中心市场2026年达676亿美元</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>国际能源署预测：到2030年全球数据中心电力需求将增长一倍以上，达945太瓦时</li>
+                    <li>OpenAI算力从2023年200兆瓦激增至2025年1.9吉瓦，计划未来增加30吉瓦账单达1.4万亿美元</li>
+                    <li>中国从供给能力、布局优化与绿色低碳夯实产业底座，绿色AI数据中心成战略重点</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 国际能源署、加拿大优先研究公司</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 总结页 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">每日总结</span>
+            <h2>2026年4月4日 AI行业核心数据</h2>
+            <div class="highlights">
+                <h3>关键数据</h3>
+                <ul>
+                    <li>OpenAI 2026年预计烧钱：170亿美元</li>
+                    <li>Anthropic融资估值：3800亿美元</li>
+                    <li>OpenAI Codex增长倍数：20倍（自去年8月以来）</li>
+                    <li>全球绿色AI数据中心2026年市场规模：676亿美元</li>
+                    <li>中国AI专利全球占比：60%</li>
+                    <li>博鳌论坛AI相关分论坛数量：6场</li>
+                </ul>
+            </div>
+            <div class="source"><strong>数据来源:</strong> 各大科技媒体综合</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // 初始化页码
+        slides.forEach((slide, index) => {
+            const pageNum = slide.querySelector('.slide-number');
+            if (pageNum) {
+                pageNum.textContent = `${index + 1} / ${totalSlides}`;
+            }
+        });
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // 触摸滑动
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, {passive: true});
+
+        // 点击翻页 (左1/3上一页, 右1/3下一页)
+        document.addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const windowWidth = window.innerWidth;
+            if (clickX < windowWidth / 3) {
+                prevSlide();
+            } else if (clickX > windowWidth * 2 / 3) {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
