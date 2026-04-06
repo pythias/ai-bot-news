@@ -6,3 +6,9 @@ build/
 .env
 *.log
 .gemini/
+_site/
+.sass-cache/
+.jekyll-cache/
+*.gem
+.bundle/
+vendor/

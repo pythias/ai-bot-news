@@ -1,22 +1,52 @@
 # AI 行业日报/周报存档 (AI News Archive)
 
-本项目是一个基于 HTML/CSS 的静态报告系统，旨在自动化生成并展示 AI 行业的每日新闻速递与每周深度综述。项目设计风格简约、专业，适合作为个人技术动态展示或团队内部共享。
+本项目基于 **Jekyll** 构建，使用 **GitHub Pages** 零成本托管和自动发布。
 
-## 🌟 项目亮点 (Highlights)
+## 项目亮点
 
--   **交互式幻灯片设计**：报告采用 PPT 风格的单页滚动/翻页布局，沉浸式阅读体验。
--   **数据驱动**：集成 `Chart.js` 动态渲染行业数据，直观展示融资现状、裁员趋势、市场规模等关键指标。
--   **响应式适配**：支持移动端触摸滑动、PC 键盘导航，随时随地查看报告。
--   **零成本部署**：纯静态页面，完美支持 GitHub Pages。
+-   **Jekyll 模板引擎**：内容与模板分离，维护简单
+-   **GitHub Pages 原生支持**：push 即发布，无需手动构建
+-   **交互式幻灯片设计**：PPT 风格的单页滚动/翻页布局
+-   **响应式适配**：支持移动端触摸滑动、PC 键盘导航
+-   **Chart.js 可嵌入**：支持数据可视化图表
 
-## 🤖 AI Agent 生成指南 (Automation)
+## 目录结构
 
-为了确保报告的结构与索引同步更新，本项目定义了标准的 AI Agent 工作流：
+```
+_reports/           ← 每日/周报 Markdown 文件（仅需编辑这里）
+_layouts/           ← HTML 布局模板（固定不动）
+_config.yml         ← Jekyll 配置
+Gemfile             ← Ruby 依赖
+```
 
-1.  **路径规范**：日报存放于 `daily_reports/YYYY-MM/`，周报存放于 `weekly_reports/YYYY-MM/`。
-2.  **首页更新**：生成新报告后，**必须**同步更新根目录下的 `index.html`，且新报告置于列表最上方（保持时间倒序）。
-3.  **标准流程**：推荐 AI Agent 阅读 [.agent/workflows/generate_report.md](.agent/workflows/generate_report.md) 以获取详细的操作指引。
+## 每日工作流程
+
+1. 在 `_reports/daily/` 创建 `YYYY-MM-DD-标题.md` 文件
+2. 填写 Front Matter 和内容
+3. `git add` → `git commit` → `git push`
+4. GitHub Pages 自动构建发布
+
+详细规范请阅读 [.agent/workflows/generate_report.md](.agent/workflows/generate_report.md)
+
+## 本地调试
+
+```bash
+# 安装依赖
+bundle install
+
+# 启动本地服务器
+bundle exec jekyll serve
+
+# 访问 http://localhost:4000
+```
+
+## 技术栈
+
+- Jekyll 4.x
+- GitHub Pages
+- HTML/CSS/JS（原生）
+- Chart.js（可选，用于数据可视化）
 
 ---
 
-*“记录 AI 的进化，观察未来的缩影。”*
+*记录 AI 的进化，观察未来的缩影。*

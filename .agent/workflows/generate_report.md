@@ -1,40 +1,120 @@
 ---
-description: 自动化生成 AI 报告并更新首页索引
+description: 使用 Jekyll + GitHub Pages 自动生成 AI 报告
 ---
 
-# AI 报告生成与首页更新工作流
+# AI 报告生成工作流 (Jekyll + GitHub Pages)
 
-当需要生成新的日报（Daily）或周报（Weekly）时，请 AI Agent 严格遵循以下标准程序：
+本项目使用 **Jekyll 静态网站生成器** + **GitHub Pages** 托管，实现零维护成本的内容发布。
 
-## 1. 任务定义 (Task Definition)
-1.  **搜索与深度总结**：搜索并总结最近一周（周报）或当天（日报）的 AI 行业重要动态。包括：技术突破、产品发布、行业巨头动向、融资并购、重要研究论文等。
-2.  **明确日期 (Date Verification)**：**严禁**依赖对话开启时的初始日期。Agent 必须从最新的系统环境（如 `ADDITIONAL_METADATA` 中的 `current local time`）获取当前的真实日期。所有报告内容、文件名、Git 提交信息中的日期必须保持实时准确。
-3.  **数据驱动**：优先寻找带有具体数据的动态。
-4.  **设计风格**：黑色/极简/全屏 Slides。
+## 目录结构
 
-## 2. 内容结构要求 (Content Structure)
--   **第 1 页：标题页** - 报告标题及当天日期。
--   **第 2 页：核心数据概览** - 卡片式布局，展示 4-6 个行业核心 KPI 或本报摘要数据。
--   **第 3-6 页：行业深度可视化 (Flexible Charts)**：
-    *   **不固定内容**：AI 可根据当期热点选择最具代表性的 2-4 个行业维度进行可视化。
-    *   **可选方向**：投融资规模趋势、大模型 Benchmark 性能对比、算力消耗/基础设施增长、AI 相关就业市场变动、重点企业财报拆解、全球监管政策分布等。
--   **新闻详情页 (Enhanced News Slides)**：
-    *   **常规模式**：分类标签、新闻标题、核心要点（列表）、来源。
-    *   **数据增强模式**：**如果新闻本身包含关键数值（如性能提升百分比、市场份额变化、用户增长等），优先使用 [Chart.js](https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js) 在该页面内嵌入一个微型图表（如条型图、圆环图）进行可视化表达。**
+```
+ai-bot-news/
+├── _layouts/           # HTML 布局模板（固定不动）
+│   ├── default.html    # 基础布局（含 CSS/JS/响应式）
+│   └── news.html      # 新闻幻灯片布局
+├── _reports/
+│   ├── daily/          # 日报 Markdown 文件
+│   └── weekly/         # 周报 Markdown 文件
+├── _config.yml         # Jekyll 配置
+├── Gemfile             # Ruby 依赖
+└── index.html          # 自动生成的索引页
+```
 
-## 3. 技术与设计规范 (Technical & Design)
-1.  **模板使用**：必须基于 `templates/ai_news_template.html`。
-2.  **交互体验**：键盘左右键、点击屏幕两侧、触摸滑动翻页。
-3.  **视图控制**：100vh 全屏，无滚动条。
-4.  **图表设计**：
-    *   **高度互动**：支持悬停（Hover）详情展示。
-    *   **黑白极简**：黑色系为主，关键数据点可用对比色（如金、蓝或柔和的红）突出，但严禁使用过时的鲜艳配色。
-    *   **响应式**：图表需自适应不同尺寸的屏幕。
+## 每日工作流程
 
-## 4. 文件存储与索引更新 (Persistence)
--   **路径规范**：
-    -   日报：`daily_reports/YYYY-MM/ai_news_YYYY-MM-DD.html`
-    -   周报：`weekly_reports/YYYY-MM/ai_weekly_YYYY-MM-DD.html`
-    -   注意：必须使用**执行任务时**的真实年、月、日。
--   **首页同步**：更新根目录 `index.html`，新报告必须插入在对应分类的最上方（保持时间倒序）。
--   **Git 提交**：完成后执行 `git add .` 并 Commit（推荐信息格式：`feat: data-rich report for YYYY-MM-DD`，其中日期务必准确）。
+### 1. 搜索与总结
+
+搜索最近一天的 AI 行业重要动态，包括：
+- 技术突破、产品发布
+- 行业巨头动向
+- 融资并购
+- 重要研究论文
+
+### 2. 创建日报文件
+
+在 `_reports/daily/` 目录下创建 Markdown 文件：
+
+**文件名格式**：`YYYY-MM-DD-简短标题.md`
+
+**文件模板**：
+
+```markdown
+---
+layout: news
+title: AI新闻日报 - YYYY年MM月DD日
+date: YYYY年MM月DD日
+mainTitle: 今日核心新闻标题
+subtitle: 副标题要点
+slides:
+  - category: 分类
+    title: 新闻标题
+    highlights:
+      - 要点1
+      - 要点2
+      - 要点3
+    source: 来源
+
+  - category: 分类2
+    title: 新闻标题2
+    highlights:
+      - 要点1
+      - 要点2
+    source: 来源2
+---
+```
+
+### 3. 提交更新
+
+```bash
+git add _reports/daily/YYYY-MM-DD-*.md
+git commit -m "feat: add AI news report for YYYY-MM-DD"
+git push
+```
+
+### 4. 自动发布
+
+GitHub Pages 自动检测到 push 事件，Jekyll 构建并发布到 `https://yourname.github.io/ai-bot-news/`
+
+## Front Matter 字段说明
+
+| 字段 | 必填 | 说明 |
+|------|------|------|
+| `layout` | ✅ | 必须为 `news` |
+| `title` | ✅ | 页面标题（用于浏览器标签） |
+| `date` | ✅ | 显示日期，格式：`YYYY年MM月DD日` |
+| `mainTitle` | ✅ | 封面大标题 |
+| `subtitle` | ✅ | 封面副标题 |
+| `slides` | ✅ | 幻灯片数组 |
+| `slides[].category` | ✅ | 分类标签（如：战略转型、伦理争议） |
+| `slides[].title` | ✅ | 新闻标题 |
+| `slides[].highlights` | ✅ | 要点数组（3-5条为宜） |
+| `slides[].source` | ❌ | 新闻来源 |
+
+## 分类推荐
+
+- 战略转型
+- 伦理争议
+- 市场格局
+- 产品升级
+- 行业趋势
+- 技术演进
+- 应用场景
+- 产业落地
+- 融资动态
+
+## 注意事项
+
+1. **日期必须准确**：使用执行任务时的真实日期
+2. **文件名使用英文**：便于 GitHub Pages 正确处理 URL
+3. **highlights 数量**：建议 3-5 条，不要过少或过多
+4. **内容为中文**：本项目面向中文读者
+5. **push 后等待**：GitHub Pages 构建通常需要 1-2 分钟
+
+## 本地预览
+
+```bash
+bundle install
+bundle exec jekyll serve
+# 访问 http://localhost:4000
+```

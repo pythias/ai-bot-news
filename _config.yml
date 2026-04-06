@@ -1,0 +1,24 @@
+title: AI 行业动态存档
+description: 记录 AI 的进化历程：每日速递与每周深度综述
+theme: minima
+markdown: kramdown
+collections:
+  reports:
+    output: true
+    permalink: /daily/:year/:month/:day/:slug/
+  weekly:
+    output: true
+    permalink: /weekly/:year/:month/:day/:slug/
+defaults:
+  - scope:
+      path: ""
+      type: reports
+    values:
+      layout: news
+      type: daily
+  - scope:
+      path: ""
+      type: weekly
+    values:
+      layout: news
+      type: weekly

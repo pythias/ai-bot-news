@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<!-- 封面幻灯片 -->
+<div class="slide active">
+    <div class="slide-content title-slide">
+        <h1>🤖 {{ page.mainTitle }}</h1>
+        <div class="subtitle">{{ page.subtitle }}</div>
+        <div class="date">{{ page.date }}</div>
+    </div>
+    <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
+    <div class="slide-number"></div>
+</div>
+
+<!-- 新闻内容幻灯片 -->
+{% for slide in page.slides %}
+<div class="slide">
+    <div class="slide-content news-slide">
+        <span class="category">{{ slide.category }}</span>
+        <h2>{{ slide.title }}</h2>
+        <div class="highlights">
+            <h3>核心要点</h3>
+            <ul>
+                {% for item in slide.highlights %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% if slide.source %}
+        <div class="source"><strong>来源:</strong> {{ slide.source }}</div>
+        {% endif %}
+    </div>
+    <div class="slide-number"></div>
+</div>
+{% endfor %}
