@@ -12,12 +12,71 @@ layout: default
     <div class="slide-number"></div>
 </div>
 
+<!-- 概览页（统计卡片） -->
+{% if page.stats %}
+<div class="slide">
+    <div class="slide-content news-slide overview-slide">
+        <h2 style="border-left: clamp(6px, 1vw, 12px) solid #000; padding-left: clamp(0.75rem, 2vw, 3vw); margin-bottom: clamp(1rem, 2vh, 2vh);">{{ page.statsTitle | default: "本周核心数据" }}</h2>
+        <div class="stats-grid">
+            {% for stat in page.stats %}
+            <div class="stat-card">
+                <div class="stat-value">{{ stat.value }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if page.statsSource %}
+        <div class="source"><strong>数据来源:</strong> {{ page.statsSource }}</div>
+        {% endif %}
+    </div>
+    <div class="slide-number"></div>
+</div>
+{% endif %}
+
+<!-- 图表页 -->
+{% if page.charts %}
+{% for chart in page.charts %}
+<div class="slide">
+    <div class="slide-content news-slide">
+        {% if chart.title %}
+        <h2 style="border-left: clamp(6px, 1vw, 12px) solid #000; padding-left: clamp(0.75rem, 2vw, 3vw);">{{ chart.title }}</h2>
+        {% endif %}
+        <div class="chart-container">
+            <canvas id="chart-{{ forloop.index }}"></canvas>
+        </div>
+        {% if chart.description %}
+        <div class="source"><strong>说明:</strong> {{ chart.description }}</div>
+        {% endif %}
+    </div>
+    <div class="slide-number"></div>
+</div>
+{% endfor %}
+{% endif %}
+
 <!-- 新闻内容幻灯片 -->
 {% for slide in page.slides %}
 <div class="slide">
     <div class="slide-content news-slide">
+        {% if slide.category %}
         <span class="category">{{ slide.category }}</span>
+        {% endif %}
         <h2>{{ slide.title }}</h2>
+        {% if slide.stats %}
+        <div class="stats-grid">
+            {% for stat in slide.stats %}
+            <div class="stat-card">
+                <div class="stat-value">{{ stat.value }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if slide.chart %}
+        <div class="chart-container">
+            <canvas id="slide-chart-{{ forloop.index }}"></canvas>
+        </div>
+        {% endif %}
+        {% if slide.highlights %}
         <div class="highlights">
             <h3>核心要点</h3>
             <ul>
@@ -26,6 +85,7 @@ layout: default
                 {% endfor %}
             </ul>
         </div>
+        {% endif %}
         {% if slide.source %}
         <div class="source"><strong>来源:</strong> {{ slide.source }}</div>
         {% endif %}
@@ -33,3 +93,54 @@ layout: default
     <div class="slide-number"></div>
 </div>
 {% endfor %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 全局图表配置
+    const chartDefaults = {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                labels: {
+                    font: { size: 12, family: "'PingFang SC', sans-serif" },
+                    color: '#333'
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: { color: '#f0f0f0' },
+                ticks: { font: { size: 11 }, color: '#666' }
+            },
+            x: {
+                grid: { display: false },
+                ticks: { font: { size: 11 }, color: '#666' }
+            }
+        }
+    };
+
+    // 渲染概览页图表
+    {% if page.charts %}
+    {% for chart in page.charts %}
+    new Chart(document.getElementById('chart-{{ forloop.index }}'), {
+        type: '{{ chart.type | default: "bar" }}',
+        data: {{ chart.data | jsonify | safe }},
+        options: {{ chart.options | jsonify | default: chartDefaults | safe }}
+    });
+    {% endfor %}
+    {% endif %}
+
+    // 渲染幻灯片内图表
+    {% for slide in page.slides %}
+    {% if slide.chart %}
+    new Chart(document.getElementById('slide-chart-{{ forloop.index }}'), {
+        type: '{{ slide.chart.type | default: "bar" }}',
+        data: {{ slide.chart.data | jsonify | safe }},
+        options: {{ slide.chart.options | jsonify | default: chartDefaults | safe }}
+    });
+    {% endif %}
+    {% endfor %}
+});
+</script>

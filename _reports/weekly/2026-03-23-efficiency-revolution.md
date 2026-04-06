@@ -4,6 +4,41 @@ title: AI行业周报 - 2026年3月23日
 date: 2026年3月23日
 mainTitle: AI 行业周报：效率革命降临
 subtitle: 从参数竞赛到实用主义
+statsTitle: 本周核心数据
+stats:
+  - value: 90%
+    label: Qwen3.5训练成本降幅
+  - value: 1分钟
+    label: AI气象模型完成5天全球预报
+  - value: 0.8B-9B
+    label: Qwen3.5小模型参数范围
+  - value: 100B+
+    label: 9B模型性能对标参数量
+statsSource: 阿里通义千问、《自然》杂志、中国气象科学研究院
+charts:
+  - title: 大小模型性能与成本对比
+    type: scatter
+    data:
+      datasets:
+        - label: 大模型
+          data: [{"x": 1800, "y": 95}, {"x": 1000, "y": 93}, {"x": 400, "y": 90}]
+          backgroundColor: "#000"
+          pointRadius: 8
+        - label: 小模型(Qwen3.5)
+          data: [{"x": 9, "y": 93}, {"x": 4, "y": 88}, {"x": 2, "y": 85}, {"x": 0.8, "y": 80}]
+          backgroundColor: "#0066cc"
+          pointRadius: 8
+    description: Qwen3.5以小参数实现大模型性能，训练成本降低90%
+  - title: AI vs 传统气象预报效率对比
+    type: bar
+    data:
+      labels: ["传统数值模型", "AI-GAMFS模型"]
+      datasets:
+        - label: 预报时间(分钟)
+          data: [240, 1]
+          backgroundColor: ["#666", "#0066cc"]
+          borderWidth: 2
+    description: AI-GAMFS模型将预报时间从数小时压缩至1分钟
 slides:
   - category: 重磅发布
     title: 阿里Qwen3.5：小模型颠覆参数竞赛

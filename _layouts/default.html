@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -135,6 +136,56 @@
             border-top: 2px solid #eee;
             font-size: clamp(0.75rem, 1.5vw, 2.2vh);
             color: #888;
+        }
+
+        /* 概览页统计卡片 */
+        .overview-slide {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(1rem, 2vw, 3vh);
+            margin-top: clamp(1.5rem, 3vh, 4vh);
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid #000;
+            border-radius: 12px;
+            padding: clamp(1rem, 2vh, 3vh);
+            text-align: center;
+        }
+
+        .stat-card .stat-value {
+            font-size: clamp(2rem, 5vw, 6vh);
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 0.5vh;
+        }
+
+        .stat-card .stat-label {
+            font-size: clamp(0.75rem, 1.5vw, 2.2vh);
+            color: #666;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* 图表容器 */
+        .chart-container {
+            flex: 1;
+            position: relative;
+            margin-top: clamp(1rem, 2vh, 2vh);
+            max-height: 50vh;
+            min-height: 200px;
+            background: #fafafa;
+            border-radius: 8px;
+            padding: clamp(0.5rem, 1vw, 1.5rem);
+        }
+
+        .chart-container canvas {
+            max-height: 100% !important;
         }
 
         /* 辅助信息 */
