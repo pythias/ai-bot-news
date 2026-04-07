@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年4月3日
-date: 2026年4月3日
+date: 2026-04-03
 mainTitle: Claude全球宕机10小时 · 美财政部全面封杀Anthropic
 subtitle: AI 行业日报
 slides:

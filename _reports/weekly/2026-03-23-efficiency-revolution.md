@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI行业周报 - 2026年3月23日
-date: 2026年3月23日
+date: 2026-03-23
 mainTitle: AI 行业周报：效率革命降临
 subtitle: 从参数竞赛到实用主义
 statsTitle: 本周核心数据

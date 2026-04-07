@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年3月4日
-date: 2026年3月4日
+date: 2026-03-04
 mainTitle: AI软硬协同突破：从实验室走向真实世界
 subtitle: AI行业日报
 slides:

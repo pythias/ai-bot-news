@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年3月31日
-date: 2026年3月31日
+date: 2026-03-31
 mainTitle: Apple Intelligence意外上线后紧急下架 · 中国Token调用量超美国
 subtitle: AI行业日报
 slides:

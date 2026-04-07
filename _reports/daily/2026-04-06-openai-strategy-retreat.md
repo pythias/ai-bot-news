@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年4月6日
-date: 2026年4月6日
+date: 2026-04-06
 mainTitle: OpenAI战略大收缩 · ChatGPT"成人模式"永久叫停
 subtitle: Sora半年即关停 · AI从拼参数转向拼交付 · Anthropic企业市场份额飙至73%
 slides:
@@ -40,7 +40,7 @@ slides:
   - category: 行业趋势
     title: AI竞争从"卷参数"转向"卷交付"，Palantir模式走红硅谷
     highlights:
-      - "前线驻场工程师"模式爆火，将专家派进企业协助定制与落地模型换取收入
+      - '"前线驻场工程师"模式爆火，将专家派进企业协助定制与落地模型换取收入'
       - 数据智能公司Palantir股价从2022年底6美元飙至2025年207美元，毛利率高达82%
       - DAU逻辑失效，AI to B端带给企业的增量成为更值得关注的方向
     source: 中国企业家、Palantir财报

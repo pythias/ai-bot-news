@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年3月19日
-date: 2026年3月19日
+date: 2026-03-19
 mainTitle: 技术奇点到来：从万亿参数到物理 AI
 subtitle: AI 行业日报
 statsTitle: 核心快讯概览

@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年3月24日
-date: 2026年3月24日
+date: 2026-03-24
 mainTitle: 算力争夺战升级：巨头豪赌能源与算力基础设施
 subtitle: AI行业日报
 slides:

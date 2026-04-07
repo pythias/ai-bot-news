@@ -1,7 +1,7 @@
 ---
 layout: news
 title: AI新闻日报 - 2026年3月27日
-date: 2026年3月27日
+date: 2026-03-27
 mainTitle: AI产业升级：从技术创新到生态重构
 subtitle: 2026年 AI 行业日报
 slides:
