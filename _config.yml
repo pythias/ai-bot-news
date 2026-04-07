@@ -6,19 +6,17 @@ collections:
   reports:
     output: true
     permalink: /daily/:year/:month/:day/:slug/
-  weekly:
-    output: true
-    permalink: /weekly/:year/:month/:day/:slug/
 defaults:
   - scope:
-      path: ""
-      type: reports
+      path: "daily"
+      type: "reports"
     values:
       layout: news
       type: daily
   - scope:
-      path: ""
-      type: weekly
+      path: "weekly"
+      type: "reports"
     values:
       layout: news
       type: weekly
+      permalink: /weekly/:year/:month/:day/:slug/

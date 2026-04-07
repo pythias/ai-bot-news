@@ -24,6 +24,9 @@ title: AI 行业日报 & 周报存档
         color: var(--text-color);
         line-height: 1.6;
         padding: 40px 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100vh;
     }
 
     .container {
@@ -146,8 +149,8 @@ title: AI 行业日报 & 周报存档
     <section>
         <h2 class="section-title">每周综述 (Weekly)</h2>
         <div class="grid">
-            {% for report in site.documents %}
-                {% if report.type == 'weekly' %}
+            {% assign weekly_reports = site.reports | where: "type", "weekly" | sort: "date" | reverse %}
+            {% for report in weekly_reports %}
                 <a href="{{ report.url }}" class="card">
                     <div>
                         <div class="card-type">Weekly Report</div>
@@ -156,7 +159,6 @@ title: AI 行业日报 & 周报存档
                     </div>
                     <div class="card-footer">查看详情</div>
                 </a>
-                {% endif %}
             {% endfor %}
         </div>
     </section>
@@ -164,7 +166,7 @@ title: AI 行业日报 & 周报存档
     <section>
         <h2 class="section-title">每日速递 (Daily)</h2>
         <div class="grid">
-            {% assign daily_reports = site.documents | where: "type", "daily" | sort: "date" | reverse %}
+            {% assign daily_reports = site.reports | where: "type", "daily" | sort: "date" | reverse %}
             {% for report in daily_reports %}
                 <a href="{{ report.url }}" class="card">
                     <div>
