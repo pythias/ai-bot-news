@@ -166,6 +166,14 @@ title: AI 行业日报 & 周报存档
     <section>
         <h2 class="section-title">每日速递 (Daily)</h2>
         <div class="grid">
+            <a href="daily_reports/2026-04/ai_news_2026-04-07.html" class="card">
+                <div>
+                    <div class="card-type">Daily News</div>
+                    <div class="card-title">AI 行业日报：AI 2026元年降临 · 大模型"换代潮"前夜</div>
+                    <div class="card-date">2026年4月7日</div>
+                </div>
+                <div class="card-footer">查看详情</div>
+            </a>
             {% assign daily_reports = site.reports | where: "type", "daily" | sort: "date" | reverse %}
             {% for report in daily_reports %}
                 <a href="{{ report.url }}" class="card">

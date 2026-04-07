@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI新闻日报 - 2026年4月7日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: white;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background: white;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-content {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            padding: 8vh 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 标题页样式 */
+        .title-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        .title-slide h1 {
+            font-size: 8vh;
+            color: #000;
+            margin-bottom: 3vh;
+            font-weight: 800;
+        }
+
+        .title-slide .subtitle {
+            font-size: 4vh;
+            color: #666;
+            margin-bottom: 6vh;
+            font-weight: 400;
+        }
+
+        .title-slide .date {
+            font-size: 3vh;
+            color: #1a1a1a;
+            padding: 1.5vh 4vw;
+            background: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        /* 内容页样式 */
+        .news-slide h2 {
+            font-size: 5.5vh;
+            color: #000;
+            margin-bottom: 4vh;
+            font-weight: 700;
+            line-height: 1.2;
+            border-left: 12px solid #000;
+            padding-left: 3vw;
+        }
+
+        .news-slide .category {
+            display: inline-block;
+            color: #999;
+            font-size: 1.6vh;
+            margin-bottom: 2vh;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5vh;
+        }
+
+        .news-slide .highlights h3 {
+            font-size: 3vh;
+            color: #444;
+            margin-bottom: 2vh;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        .news-slide .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-slide .highlights li {
+            font-size: 3vh;
+            color: #222;
+            line-height: 1.6;
+            margin-bottom: 2vh;
+            padding-left: 3vw;
+            position: relative;
+        }
+
+        .news-slide .highlights li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .news-slide .source {
+            margin-top: 4vh;
+            padding-top: 3vh;
+            border-top: 2px solid #eee;
+            font-size: 2.2vh;
+            color: #888;
+        }
+
+        /* 辅助信息 */
+        .slide-number {
+            position: absolute;
+            bottom: 4vh;
+            right: 4vw;
+            font-size: 1.8vh;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        .navigation-hint {
+            position: absolute;
+            bottom: 4vh;
+            left: 4vw;
+            font-size: 1.6vh;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面幻灯片 -->
+    <div class="slide active">
+        <div class="slide-content title-slide">
+            <h1>🤖 AI 2026元年降临 · 大模型"换代潮"前夜</h1>
+            <div class="subtitle">智能体商业化元年 | AI基建成熟期 | 物理AI爆发</div>
+            <div class="date">2026年4月7日</div>
+        </div>
+        <div class="navigation-hint">使用 ← → 键或点击屏幕左右翻页</div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻1 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">产业趋势</span>
+            <h2>2026确认为AI元年：智能体从"可演示"跃迁至"可依赖"</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>行业共识：AI从"理解"升级为"行动"，智能体具备"感知-决策-执行-优化"完整闭环</li>
+                    <li>OpenAI、Google、Meta等巨头集体将关键节点指向2026，标志"基建期"结束</li>
+                    <li>商业化从效率提升转向价值创造，制造业柔性生产效率提升35%，金融风控不良率下降1-2%</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 腾讯云开发者社区 | AI产业白皮书</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻2 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">技术突破</span>
+            <h2>大模型"慢思考"能力解锁：推理时间缩放成标配</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>OpenAI o系列、DeepSeek R1引入"推理时间缩放"，处理复杂问题耗时5-30秒完成万次逻辑推导</li>
+                    <li>技术原理：强化学习实现任务自主拆解，AI从"快思考直觉"升级为"慢思考精准推导"</li>
+                    <li>应用价值：数学证明、工程设计等高难度任务成功率大幅提升，幻觉现象显著降低</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> CSDN | 2026 AI技术白皮书</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻3 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">模型竞赛</span>
+            <h2>2026下半年关键窗口：GPT-6、Gemini 4、Grok-5集体待发</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>xAI计划推出6T参数Grok-5探索体量极限，Meta发布代号"Avocado"注重生活化场景</li>
+                    <li>核心叙事转向"系统集成能力"：长期运行稳定性、跨模型协同、真实任务自我纠错</li>
+                    <li>行业焦点从"模型有多大"转向"在系统里怎么用"，静默更新将成常态</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> CSDN | LifeArchitect预测分析</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻4 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">国产突围</span>
+            <h2>中国AI模型调用量连续3周全球第一，周调用达7.36万亿Token</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>OpenRouter数据显示2026年3月中国模型调用量超美国，MiniMax、Kimi、GLM、DeepSeek占据前五</li>
+                    <li>成本优势凸显：MiniMax价格仅为Claude的1/13，国产开源模型在Agent场景原生架构优化</li>
+                    <li>日均Token调用量从2024年初1000亿增至2026年3月140万亿，两年增长超1400倍</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 新浪AI热点 | 国家数据局</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻5 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">行业落地</span>
+            <h2>具身智能商业化元年：人形机器人市场份额中国占39%</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>智元机器人全球市占率39%，2026年成具身智能与机器人商业化关键年</li>
+                    <li>融资热度延续：星海图B+轮近20亿估值破200亿，灵猴、橡鹿等多家企业获亿级融资</li>
+                    <li>技术决胜点转向"大脑"：动力电池固态化、AI语音开放平台、全栈开源机器人成三大方向</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> AI前沿技术日报 | 央广网</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻6 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">生成式AI</span>
+            <h2>AI视频进入"物理常识"时代：PixVerse V6达实拍级真实感</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>15秒生成1080P音视频，人物、物理模拟符合自然规律无穿模，镜头连贯性突破</li>
+                    <li>生成式AI演化为"世界模拟器"，学习物理规律成为机器人训练的"精神时光屋"</li>
+                    <li>字节Seedance 2.0双分支架构实现音画并行，单条15秒成本降至4.5-9元进入工业化</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 爱诗科技 | CSDN产业分析</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻7 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">交互革命</span>
+            <h2>AI从"辅助工具"到"独立执行者"：Agent商业模式成型</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>Copilot提效但未改变流程，Agent实现"Goal→感知→规划→执行"完整闭环</li>
+                    <li>多智能体协作成趋势：CEO Agent分派任务，Coder/Reviewer/Writer Agent分工协作</li>
+                    <li>阿里推"悟空"企业平台，腾讯加码微信Agent，百度"秒哒"三步对接OpenClaw</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 国产AI应用分析 | 金融AI日报</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻8 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">医疗AI</span>
+            <h2>瑞典研发AI血液检测模型：单次识别五种神经退行性疾病</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>隆德大学基于1.7万样本开发蛋白质组学模型，可辅助区分阿尔茨海默、帕金森等五种疾病</li>
+                    <li>AI医疗纳入医保：837家三甲医院落地12场景，影像准确率99%，癌症漏诊率降70%</li>
+                    <li>中国石化、石油大模型深度落地，"昆仑"数据规模550TB，钻井效率提升2-5倍</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> Nature Medicine | AI日报</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 新闻9 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">安全治理</span>
+            <h2>国安部发布OpenClaw安全手册：划定四大高危风险红线</h2>
+            <div class="highlights">
+                <h3>核心要点</h3>
+                <ul>
+                    <li>明确警示主机接管、数据窃取、言论篡改、隐蔽漏洞四大风险，多所高校暂停教学实验</li>
+                    <li>强制要求"最小权限原则"与"隔离环境运行"，建立操作审计日志与数据加密</li>
+                    <li>标志AI治理从宏观政策迈入具体技术栈合规，为全球智能体安全治理提供中国方案</li>
+                </ul>
+            </div>
+            <div class="source"><strong>来源:</strong> 国家安全部官微 | AI日报</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <!-- 总结页 -->
+    <div class="slide">
+        <div class="slide-content news-slide">
+            <span class="category">数据总览</span>
+            <h2>核心数据</h2>
+            <div class="highlights">
+                <h3>关键指标</h3>
+                <ul>
+                    <li>中国AI模型周调用量: 7.36万亿Token</li>
+                    <li>中国人形机器人全球市占率: 39%</li>
+                    <li>国内备案大模型数量(广东): 132款</li>
+                    <li>制造业AI应用柔性生产效率提升: 35%</li>
+                    <li>金融AI风控不良率下降: 1-2个百分点</li>
+                    <li>AI医疗影像诊断准确率: 99%</li>
+                </ul>
+            </div>
+            <div class="source"><strong>数据来源:</strong> OpenRouter | 国家数据局 | Nature Medicine</div>
+        </div>
+        <div class="slide-number"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // 初始化页码
+        slides.forEach((slide, index) => {
+            const pageNum = slide.querySelector('.slide-number');
+            if (pageNum) {
+                pageNum.textContent = `${index + 1} / ${totalSlides}`;
+            }
+        });
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // 触摸滑动
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, {passive: true});
+
+        // 点击翻页 (左1/3上一页, 右1/3下一页)
+        document.addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const windowWidth = window.innerWidth;
+            if (clickX < windowWidth / 3) {
+                prevSlide();
+            } else if (clickX > windowWidth * 2 / 3) {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
