@@ -149,7 +149,7 @@ title: AI 行业日报 & 周报存档
     <section>
         <h2 class="section-title">每周综述 (Weekly)</h2>
         <div class="grid">
-            {% assign weekly_reports = site.reports | where: "type", "weekly" | sort: "date" | reverse %}
+            {% assign weekly_reports = site.reports | where_exp: "r", "r.path contains '/weekly/'" | sort: "date" | reverse %}
             {% for report in weekly_reports %}
                 <a href="{{ report.url }}" class="card">
                     <div>
@@ -174,7 +174,7 @@ title: AI 行业日报 & 周报存档
                 </div>
                 <div class="card-footer">查看详情</div>
             </a>
-            {% assign daily_reports = site.reports | where: "type", "daily" | sort: "date" | reverse %}
+            {% assign daily_reports = site.reports | where_exp: "r", "r.path contains '/daily/'" | sort: "date" | reverse %}
             {% for report in daily_reports %}
                 <a href="{{ report.url }}" class="card">
                     <div>

@@ -12,11 +12,9 @@ defaults:
       type: "reports"
     values:
       layout: news
-      type: daily
   - scope:
       path: "weekly"
       type: "reports"
     values:
       layout: news
-      type: weekly
       permalink: /weekly/:year/:month/:day/:slug/
